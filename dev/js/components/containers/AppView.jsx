@@ -1,4 +1,5 @@
 import React from 'react';
+import Navigation from '../components/Navigation.jsx'
 
 export default class AppView extends React.Component {
 	constructor(props) {
@@ -6,6 +7,8 @@ export default class AppView extends React.Component {
 	}
 
 	render() {
-		return null;
+		return (
+			<Navigation/>
+		);
 	}
 }
