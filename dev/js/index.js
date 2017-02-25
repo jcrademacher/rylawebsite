@@ -4,10 +4,7 @@ import {Provider} from 'react-redux';
 import {createStore} from 'redux';
 import allReducers from './reducers';
 
-import Button from 'react-bootstrap/lib/Button';
-import ButtonToolbar from 'react-bootstrap/lib/ButtonToolbar';
-
-import AppView from '../../dev/js/components/containers/AppView.jsx';
+import AppView from './components/containers/AppView.jsx';
 
 const App = () => {
 	return (
