@@ -1,0 +1,35 @@
+{
+  "name": "rylawebsite",
+  "version": "1.0.0",
+  "description": "Website for the Rotary Youth Leadership Awards program for Rotary Distrcit 7780",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "rotary",
+    "youth",
+    "leadership",
+    "awards",
+    "7780"
+  ],
+  "author": "jcrademacher",
+  "license": "ISC",
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-core": "^6.23.1",
+    "babel-loader": "^6.3.2",
+    "babel-preset-env": "^1.1.10",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-react": "^6.23.0",
+    "webpack": "^2.2.1"
+  },
+  "dependencies": {
+    "react": "^15.4.2",
+    "react-bootstrap": "^0.30.7",
+    "react-dom": "^15.4.2",
+    "react-redux": "^5.0.3",
+    "react-tap-event-plugin": "^2.0.1",
+    "redux": "^3.6.0"
+  }
+}
