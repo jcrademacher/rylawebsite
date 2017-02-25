@@ -4,7 +4,8 @@
   "description": "Website for the Rotary Youth Leadership Awards program for Rotary Distrcit 7780",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+		"dev": "webpack-dev-server --progress --colors --content-base ./src/pages"
   },
   "keywords": [
     "rotary",
