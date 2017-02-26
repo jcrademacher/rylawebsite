@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-		"dev": "webpack-dev-server --progress --colors --content-base ./src/pages"
+    "dev": "webpack-dev-server --progress --colors --content-base ./src/pages"
   },
   "keywords": [
     "rotary",
@@ -23,6 +23,8 @@
     "babel-preset-env": "^1.1.10",
     "babel-preset-es2015": "^6.22.0",
     "babel-preset-react": "^6.23.0",
+    "file-loader": "^0.10.1",
+    "url-loader": "^0.5.8",
     "webpack": "^2.2.1"
   },
   "dependencies": {
