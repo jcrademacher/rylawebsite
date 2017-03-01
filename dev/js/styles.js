@@ -3,4 +3,4 @@ const pageTheme = {
 	secondary: "rgb(0,140,186)"
 };
 
-export {pageTheme};
+export default pageTheme;
