@@ -1,6 +1,6 @@
 import React from 'react';
 import {Button} from 'react-bootstrap';
-import StaffImage from '../../../../resources/staff.jpg';
+import StaffImage from '../../../../resources/lake.png';
 
 const Greeting = () => {
 	var greeting = {
@@ -21,8 +21,8 @@ const Greeting = () => {
 
 	return (
 		<div style={greeting}>
-			<h1><i>Be a gift to the world</i></h1>
-			<Button bsStyle="primary">Join RYLA Today</Button>
+			<h1 style={{fontSize: 60}}><i>Be your best self</i></h1>
+			<Button bsStyle="success">How?</Button>
 		</div>
 	);
 };
