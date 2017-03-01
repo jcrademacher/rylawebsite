@@ -1,8 +1,8 @@
 import React from 'react';
-import {pageTheme} from '../../styles.js';
+import pageTheme from '../../styles.js';
 
 const footerStyle = {
-	backgroundColor: pageTheme.primary,
+	backgroundColor: pageTheme.secondary,
 	color: "white",
 	height: 100,
 	textAlign: "center"
