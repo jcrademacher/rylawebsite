@@ -12,6 +12,7 @@ import img11 from '../../resources/rotary.png';
 import img12 from '../../resources/staff.jpg';
 import img13 from '../../resources/ryla.jpg';
 
+
 export const images = [
 	img1,
 	img2,
@@ -25,5 +26,5 @@ export const images = [
 	img10,
 	img11,
 	img12,
-	img13
+	img13,
 ];
