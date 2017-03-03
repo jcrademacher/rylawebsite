@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 507);
+/******/ 	return __webpack_require__(__webpack_require__.s = 508);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -18093,32 +18093,51 @@ var _reactBootstrap = __webpack_require__(67);
 
 var _images = __webpack_require__(222);
 
+var _parchment = __webpack_require__(503);
+
+var _parchment2 = _interopRequireDefault(_parchment);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var divStyle = {
 	backgroundColor: _styles2.default.secondary,
-	height: "100vh",
-	minHeight: "100%",
+	height: "100%",
 	textAlign: "center"
 };
 
+var pictureSpanStyle = {
+	maxWidth: 800,
+	maxHeight: 700,
+	display: "block",
+	marginLeft: 'auto',
+	marginRight: 'auto',
+
+	backgroundImage: 'url(' + _parchment2.default + ')',
+	backgroundRepeat: 'no-repeat',
+	backgroundSize: "100% 100%",
+	backgroundPosition: 'center'
+};
+
+// loops through all images and creates a carousel item
 var createCarouselItems = function createCarouselItems() {
 	return _images.images.map(function (img) {
 		console.log("mapping");
 		return _react2.default.createElement(
-			_reactBootstrap.Carousel.Item,
+			'div',
 			null,
 			_react2.default.createElement(
-				'center',
-				null,
+				'span',
+				{ style: pictureSpanStyle },
 				_react2.default.createElement(
 					_reactBootstrap.ResponsiveEmbed,
 					{ a4by3: true },
 					_react2.default.createElement('img', {
-						src: img
+						src: img,
+						style: { padding: 50 }
 					})
 				)
-			)
+			),
+			_react2.default.createElement('br', null)
 		);
 	});
 };
@@ -18127,8 +18146,10 @@ var PhotoViewer = function PhotoViewer(props) {
 	return _react2.default.createElement(
 		'div',
 		{ style: divStyle },
+		_react2.default.createElement('br', null),
+		_react2.default.createElement('br', null),
 		_react2.default.createElement(
-			_reactBootstrap.Carousel,
+			'center',
 			null,
 			createCarouselItems()
 		)
@@ -18274,15 +18295,15 @@ var _img19 = __webpack_require__(493);
 
 var _img20 = _interopRequireDefault(_img19);
 
-var _rotary = __webpack_require__(503);
+var _rotary = __webpack_require__(504);
 
 var _rotary2 = _interopRequireDefault(_rotary);
 
-var _staff = __webpack_require__(505);
+var _staff = __webpack_require__(506);
 
 var _staff2 = _interopRequireDefault(_staff);
 
-var _ryla = __webpack_require__(504);
+var _ryla = __webpack_require__(505);
 
 var _ryla2 = _interopRequireDefault(_ryla);
 
@@ -42305,7 +42326,7 @@ if (typeof self !== 'undefined') {
 
 var result = (0, _ponyfill2['default'])(root);
 exports['default'] = result;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(212), __webpack_require__(506)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(212), __webpack_require__(507)(module)))
 
 /***/ }),
 /* 489 */
@@ -42699,22 +42720,28 @@ module.exports = __webpack_require__.p + "9812178a71e086d813d09bdce564d051.png";
 /* 503 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "77fbbb2e640f665b72bdcaa2f2970711.png";
+module.exports = __webpack_require__.p + "82544b7072e6e57e02d4a5ec056f1d96.png";
 
 /***/ }),
 /* 504 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "af16977b21bb178d3bb328689d1ecd65.jpg";
+module.exports = __webpack_require__.p + "77fbbb2e640f665b72bdcaa2f2970711.png";
 
 /***/ }),
 /* 505 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "78b33c139fec6a90313ff614681a27a0.jpg";
+module.exports = __webpack_require__.p + "af16977b21bb178d3bb328689d1ecd65.jpg";
 
 /***/ }),
 /* 506 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "78b33c139fec6a90313ff614681a27a0.jpg";
+
+/***/ }),
+/* 507 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -42742,7 +42769,7 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 507 */
+/* 508 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
