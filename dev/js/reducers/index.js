@@ -1,6 +1,6 @@
 import {combineReducers} from 'redux';
 
-var CurrentTabReducer = function(state=null, action) {
+const CurrentTabReducer = function(state=null, action) {
 	if(state == null)
 		return 0;					// default currentTab,
 	else {
@@ -8,12 +8,26 @@ var CurrentTabReducer = function(state=null, action) {
 			case "NAV_TAB_CHANGED":
 				return action.payload;
 				break;
+			default:
+				return state;
 		}
+	}
+}
+
+const InfoViewReducer = (state=null, action) => {
+	if(state == null)
+		return "about"
+	else {
+		if(action.type == "INFO_VIEW_CHANGED") {
+			return action.payload
+		}
+		else return state;
 	}
 }
 
 // this is essentially what the 'store' looks like
 // the reducers return data that create a new store
 export default combineReducers({
-	currentTab: CurrentTabReducer
+	currentTab: CurrentTabReducer,
+	currentInfoView: InfoViewReducer
 });
