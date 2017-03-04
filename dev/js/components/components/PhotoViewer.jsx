@@ -17,11 +17,6 @@ const pictureSpanStyle = {
 	display: "block",
 	marginLeft: 'auto',
 	marginRight: 'auto',
-
-	backgroundImage: 'url(' + parchment + ')',
-	backgroundRepeat: 'no-repeat',
-	backgroundSize: "100% 100%",
-	backgroundPosition: 'center',
 };
 
 
@@ -35,10 +30,11 @@ const createCarouselItems = () => {
 					<ResponsiveEmbed a4by3>
 						<img
 							src={img}
-							style={{padding: 50}}
+							style={{border: "8px ridge white"}}
 						/>
 					</ResponsiveEmbed>
 				</span>
+				<br/>
 				<br/>
 			</div>
 		);
@@ -48,6 +44,8 @@ const createCarouselItems = () => {
 const PhotoViewer = (props) => {
 	return	(
 		<div style={divStyle}>
+			<br/>
+			<br/>
 			<br/>
 			<br/>
 			<center>
