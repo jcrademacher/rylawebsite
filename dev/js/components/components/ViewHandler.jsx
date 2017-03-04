@@ -1,9 +1,9 @@
 import React from 'react';
 import Greeting from './Greeting.jsx';
 import InfoPanel from './InfoPanel.jsx';
-import Footer from './Footer.jsx';
 import PhotoViewer from './PhotoViewer.jsx';
 import pageTheme from '../../styles.js';
+import InfoViewContainer from '../containers/InfoViewContainer.jsx';
 
 const ViewHandler = (props) => {
 	switch(props.currentTab) {
@@ -35,6 +35,10 @@ const ViewHandler = (props) => {
 		case 2:
 			return (
 				<PhotoViewer/>
+			);
+		case 3: case 4: // for both about and contact
+			return (
+				<InfoViewContainer/>
 			);
 		default:
 			return (
