@@ -2,6 +2,7 @@ import React from 'react';
 import {Navbar} from 'react-bootstrap';
 import {Nav} from 'react-bootstrap';
 import {NavItem} from 'react-bootstrap';
+import {PropTypes} from 'react';
 
 const rylaStyle = {
 	height: 30,
@@ -19,7 +20,7 @@ const Navigation = (props) => {
 		      <Navbar.Toggle />
 		    </Navbar.Header>
 		    <Navbar.Collapse>
-		      <Nav pullRight activeKey={props.activeKey} onSelect={props.onChange}>
+		      <Nav pullRight activeKey={props.currentTab} onSelect={props.navTabChanged}>
 						<NavItem eventKey={0} href="#">Home</NavItem>
 		        <NavItem eventKey={1} href="#">Apply</NavItem>
 						<NavItem eventKey={2} href="#">Gallery</NavItem>
@@ -30,6 +31,10 @@ const Navigation = (props) => {
   		</Navbar>
 		</div>
 	);
+}
+
+Navigation.propTypes = {
+	currentTab: PropTypes.number.isRequired
 }
 
 export default Navigation;
