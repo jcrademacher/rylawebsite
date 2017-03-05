@@ -1,19 +1,21 @@
 import React from 'react';
+import pageTheme from '../../styles.js';
 
 const styles = {
 	left: {
 		float: "left",
-		width: "100%"
+		width: "30%",
 	},
 
 	right: {
 		float: "right",
-		width: "100%"
+		width: "70%",
+
 	}
 }
 
 const AboutView = (props) => (
-	<div style={{height: 500}}>
+	<div>
 		<div style={styles.left}>
 			{props.children[0]}
 		</div>

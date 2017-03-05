@@ -1,7 +1,6 @@
 import React from 'react';
 import Navigation from '../components/Navigation.jsx';
 import ViewHandler from '../components/ViewHandler.jsx';
-import Footer from '../components/Footer.jsx';
 
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';

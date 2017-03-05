@@ -8,6 +8,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
 import {infoViewChanged} from '../../actions/index.js';
+import {navTabChanged} from '../../actions/index.js';
 
 // sends store state into AppView as props
 function mapStateToProps(state) {
@@ -18,17 +19,20 @@ function mapStateToProps(state) {
 
 // links actions with redux to be available as props in AppView
 function mapDispatchToProps(dispatch) {
-	return bindActionCreators({infoViewChanged}, dispatch);
+	return bindActionCreators({navTabChanged, infoViewChanged}, dispatch);
 }
 
 const InfoViewContainer = (props) => {
 	return (
 		<div>
-			<br/>
-			<br/>
 			<AboutView>
-				<AboutMenu/>
-				<About/>
+				<AboutMenu
+					infoViewChanged={props.infoViewChanged}
+					navTabChanged={props.navTabChanged}
+				/>
+				<About
+					currentInfoView={props.currentInfoView}
+				/>
 			</AboutView>
 		</div>
 	);

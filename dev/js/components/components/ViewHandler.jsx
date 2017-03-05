@@ -4,6 +4,7 @@ import InfoPanel from './InfoPanel.jsx';
 import PhotoViewer from './PhotoViewer.jsx';
 import pageTheme from '../../styles.js';
 import InfoViewContainer from '../containers/InfoViewContainer.jsx';
+import Footer from '../components/Footer.jsx';
 
 const ViewHandler = (props) => {
 	switch(props.currentTab) {
