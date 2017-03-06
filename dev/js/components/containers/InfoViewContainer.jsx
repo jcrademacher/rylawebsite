@@ -29,6 +29,7 @@ const InfoViewContainer = (props) => {
 				<AboutMenu
 					infoViewChanged={props.infoViewChanged}
 					navTabChanged={props.navTabChanged}
+					currentInfoView={props.currentInfoView}
 				/>
 				<About
 					currentInfoView={props.currentInfoView}
