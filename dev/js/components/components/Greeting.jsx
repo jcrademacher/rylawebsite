@@ -1,9 +1,10 @@
 import React from 'react';
 import {Button} from 'react-bootstrap';
 import StaffImage from '../../../../resources/lake.png';
+import {dispatch} from 'redux';
 
-const Greeting = () => {
-	var greeting = {
+const Greeting = (props) => {
+	const greeting = {
 		height: 600,
 		display: "table-cell",
 		verticalAlign: "middle",
@@ -22,7 +23,9 @@ const Greeting = () => {
 	return (
 		<div style={greeting}>
 			<h1 style={{fontSize: 60}}><i>Be your best self</i></h1>
-			<Button bsStyle="success">How?</Button>
+			<Button bsStyle="success" onClick={props.onClick}>
+				How?
+			</Button>
 		</div>
 	);
 };

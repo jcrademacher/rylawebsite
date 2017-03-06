@@ -24,7 +24,7 @@ const InfoPanel = (props) => {
 			<br/><br/><br/>
 			<h1 style={hstyle}>{props.title}</h1>
 			<br/>
-			<Button bsStyle="success">{props.buttonLabel}</Button>
+			<Button bsStyle="success" onClick={props.onClick}>{props.buttonLabel}</Button>
 		</div>
 	);
 }
