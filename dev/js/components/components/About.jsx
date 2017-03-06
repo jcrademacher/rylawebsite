@@ -8,11 +8,9 @@ const divStyle = {
 
 const About = (props) => {
 	switch (props.currentInfoView) {
-		case "about":
+		case 0:
 			return (
 				<div style={divStyle}>
-					<br/>
-					<br/>
 					<h1>About RYLA</h1>
 					<br/>
 					<p>
@@ -23,6 +21,18 @@ const About = (props) => {
 
 						Each LEG is guided through the conference by a team of experienced facilitators who have been selected by the District Chair because of their demonstrated leadership ability, commitment to the development of youth leaders, and experience with the RYLA program.
 					</p>
+				</div>
+			);
+			case 2:
+				return (
+					<div style={divStyle}>
+						<h1>Contact</h1>
+					</div>
+				);
+		default:
+			return (
+				<div style={divStyle}>
+					<h1>Not found</h1>
 				</div>
 			);
 	}
