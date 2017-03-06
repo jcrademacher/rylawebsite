@@ -16,11 +16,11 @@ const CurrentTabReducer = function(state=null, action) {
 
 const InfoViewReducer = (state=null, action) => {
 	if(state == null)
-		return "about"
+		return 0
 	else {
-		if(action.type == "INFO_VIEW_CHANGED") {
+		if(action.type == "INFO_VIEW_CHANGED")
 			return action.payload
-		}
+
 		else return state;
 	}
 }
