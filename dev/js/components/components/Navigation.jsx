@@ -25,7 +25,6 @@ const Navigation = (props) => {
 		        <NavItem eventKey={1} href="#">Apply</NavItem>
 						<NavItem eventKey={2} href="#">Gallery</NavItem>
 		        <NavItem eventKey={3} href="#">About RYLA</NavItem>
-						<NavItem eventKey={4} href="#">Contact</NavItem>
 		      </Nav>
 		    </Navbar.Collapse>
   		</Navbar>
