@@ -1,6 +1,6 @@
 import React from 'react';
 import Navigation from '../components/Navigation.jsx';
-import ViewHandler from '../components/ViewHandler.jsx';
+import ViewHandler from '../containers/ViewHandler.jsx';
 
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
@@ -16,7 +16,7 @@ function mapStateToProps(state) {
 
 // links actions with redux to be available as props in AppView
 function mapDispatchToProps(dispatch) {
-	return bindActionCreators({navTabChanged, infoViewChanged}, dispatch);
+	return bindActionCreators({navTabChanged}, dispatch);
 }
 
 /*
@@ -31,7 +31,7 @@ const AppView = (props) => {
 				navTabChanged={props.navTabChanged}
 				currentTab={props.currentTab}
 			/>
-			<ViewHandler currentTab={props.currentTab}/>
+			<ViewHandler/>
 		</div>
 	);
 }
