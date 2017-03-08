@@ -17825,7 +17825,7 @@ var _Navigation = __webpack_require__(223);
 
 var _Navigation2 = _interopRequireDefault(_Navigation);
 
-var _ViewHandler = __webpack_require__(225);
+var _ViewHandler = __webpack_require__(226);
 
 var _ViewHandler2 = _interopRequireDefault(_ViewHandler);
 
@@ -17938,48 +17938,155 @@ var divStyle = {
 	margin: 20
 };
 
+var AboutRYLA = function AboutRYLA() {
+	return _react2.default.createElement(
+		'div',
+		{ style: divStyle },
+		_react2.default.createElement(
+			'h1',
+			null,
+			'About RYLA'
+		),
+		_react2.default.createElement('hr', null),
+		_react2.default.createElement(
+			'p',
+			null,
+			_react2.default.createElement(
+				'b',
+				null,
+				'RYLA'
+			),
+			' is Rotary\'s youth leadership training program.  Though there are many variations for RYLA programs, our district\'s RYLA works with students the June after their sophomore year in high school.  RYLA programs in other areas are designed for college students or young adults just beginning their professional careers.  RYLA emphasizes leadership, citizenship, personal growth and service. ',
+			_react2.default.createElement('br', null),
+			_react2.default.createElement('br', null),
+			'Here in District 7780 we believe that RYLA will assist young people to realize their potential and to adapt to experiences within their life and their communities. RYLA enables participants to join other young people from across our District. Students come together to exchange ideas, plans and opinions with other talented and energetic people like yourself in a supportive atmosphere, free from pressure and distraction. ',
+			_react2.default.createElement('br', null),
+			_react2.default.createElement('br', null),
+			'In late June of each year, clubs throughout District 7780 send 120 high school sophomores to the Rotary Youth Leadership awards conference held at Camp Hinds in Raymond, Maine.  After registration, early Sunday morning, participants will be assigned to a Leadership Exploration Group (LEG) with 11 others where they will spend 4 days together exploring leadership concepts through a series of practical situations.  These include team building activities, group problem solving, confidence building and solo events. ',
+			_react2.default.createElement('br', null),
+			_react2.default.createElement('br', null),
+			'Each LEG is guided through the conference by a team of experienced facilitators who have been selected by the District Chair because of their demonstrated leadership ability, commitment to the development of youth leaders, and experience with the RYLA program.'
+		)
+	);
+};
+
+var Contact = function Contact() {
+	return _react2.default.createElement(
+		'div',
+		{ style: divStyle },
+		_react2.default.createElement(
+			'h1',
+			null,
+			'Contact'
+		),
+		_react2.default.createElement('hr', null),
+		_react2.default.createElement(
+			'h2',
+			null,
+			_react2.default.createElement(
+				'b',
+				null,
+				'Phil Giordano'
+			)
+		),
+		_react2.default.createElement(
+			'h3',
+			null,
+			'District 7780 - RYLA Chair'
+		),
+		_react2.default.createElement(
+			'h3',
+			null,
+			'Camp Executive Director'
+		),
+		_react2.default.createElement('br', null),
+		_react2.default.createElement(
+			'h3',
+			null,
+			_react2.default.createElement(
+				'b',
+				null,
+				'Email:'
+			),
+			' philtastic7780@gmail.com'
+		),
+		_react2.default.createElement(
+			'h3',
+			null,
+			_react2.default.createElement(
+				'b',
+				null,
+				'Phone:'
+			),
+			' (207) - 636 - 6500'
+		),
+		_react2.default.createElement('hr', null),
+		_react2.default.createElement(
+			'h2',
+			null,
+			_react2.default.createElement(
+				'b',
+				null,
+				'US Mail Address:'
+			)
+		),
+		_react2.default.createElement(
+			'h3',
+			null,
+			'RYLA'
+		),
+		_react2.default.createElement(
+			'h3',
+			null,
+			'C/O Phil Giordano'
+		),
+		_react2.default.createElement(
+			'h3',
+			null,
+			'P.O. Box 124'
+		),
+		_react2.default.createElement(
+			'h3',
+			null,
+			'Kennebunk, ME 04043-0124'
+		)
+	);
+};
+
+var Directions = function Directions() {
+	return _react2.default.createElement(
+		'div',
+		{ style: divStyle },
+		_react2.default.createElement(
+			'h1',
+			null,
+			'Directions'
+		),
+		_react2.default.createElement('hr', null),
+		_react2.default.createElement(
+			'h3',
+			null,
+			_react2.default.createElement(
+				'b',
+				null,
+				'Address:'
+			),
+			' 146 Plains Road Raymond, ME 04071'
+		)
+	);
+};
+
 var About = function About(props) {
 	switch (props.currentInfoView) {
 		case 0:
-			return _react2.default.createElement(
-				'div',
-				{ style: divStyle },
-				_react2.default.createElement(
-					'h1',
-					null,
-					'About RYLA'
-				),
-				_react2.default.createElement('br', null),
-				_react2.default.createElement(
-					'p',
-					null,
-					_react2.default.createElement(
-						'b',
-						null,
-						'RYLA'
-					),
-					' is Rotary\'s youth leadership training program.  Though there are many variations for RYLA programs, our district\'s RYLA works with students the June after their sophomore year in high school.  RYLA programs in other areas are designed for college students or young adults just beginning their professional careers.  RYLA emphasizes leadership, citizenship, personal growth and service. ',
-					_react2.default.createElement('br', null),
-					_react2.default.createElement('br', null),
-					'Here in District 7780 we believe that RYLA will assist young people to realize their potential and to adapt to experiences within their life and their communities. RYLA enables participants to join other young people from across our District. Students come together to exchange ideas, plans and opinions with other talented and energetic people like yourself in a supportive atmosphere, free from pressure and distraction. ',
-					_react2.default.createElement('br', null),
-					_react2.default.createElement('br', null),
-					'In late June of each year, clubs throughout District 7780 send 120 high school sophomores to the Rotary Youth Leadership awards conference held at Camp Hinds in Raymond, Maine.  After registration, early Sunday morning, participants will be assigned to a Leadership Exploration Group (LEG) with 11 others where they will spend 4 days together exploring leadership concepts through a series of practical situations.  These include team building activities, group problem solving, confidence building and solo events. ',
-					_react2.default.createElement('br', null),
-					_react2.default.createElement('br', null),
-					'Each LEG is guided through the conference by a team of experienced facilitators who have been selected by the District Chair because of their demonstrated leadership ability, commitment to the development of youth leaders, and experience with the RYLA program.'
-				)
-			);
+			return _react2.default.createElement(AboutRYLA, null);
+			break;
 		case 2:
-			return _react2.default.createElement(
-				'div',
-				{ style: divStyle },
-				_react2.default.createElement(
-					'h1',
-					null,
-					'Contact'
-				)
-			);
+			return _react2.default.createElement(Contact, null);
+			break;
+		case 3:
+			return _react2.default.createElement(Directions, null);
+			break;
 		default:
 			return _react2.default.createElement(
 				'div',
@@ -18372,7 +18479,7 @@ var InfoPanel = function InfoPanel(props) {
 
 	var divStyle = {
 		backgroundColor: props.backgroundColor,
-		height: 300,
+		height: 350,
 		textAlign: "center",
 		color: textColor
 	};
@@ -18588,6 +18695,74 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _AboutView = __webpack_require__(219);
+
+var _AboutView2 = _interopRequireDefault(_AboutView);
+
+var _AboutMenu = __webpack_require__(218);
+
+var _AboutMenu2 = _interopRequireDefault(_AboutMenu);
+
+var _About = __webpack_require__(217);
+
+var _About2 = _interopRequireDefault(_About);
+
+var _reactRedux = __webpack_require__(64);
+
+var _redux = __webpack_require__(34);
+
+var _index = __webpack_require__(82);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// sends store state into AppView as props
+function mapStateToProps(state) {
+	return {
+		currentInfoView: state.currentInfoView
+	};
+}
+
+// links actions with redux to be available as props in AppView
+function mapDispatchToProps(dispatch) {
+	return (0, _redux.bindActionCreators)({ navTabChanged: _index.navTabChanged, infoViewChanged: _index.infoViewChanged }, dispatch);
+}
+
+var InfoViewContainer = function InfoViewContainer(props) {
+	return _react2.default.createElement(
+		'div',
+		null,
+		_react2.default.createElement(
+			_AboutView2.default,
+			null,
+			_react2.default.createElement(_AboutMenu2.default, {
+				infoViewChanged: props.infoViewChanged,
+				navTabChanged: props.navTabChanged,
+				currentInfoView: props.currentInfoView
+			}),
+			_react2.default.createElement(_About2.default, {
+				currentInfoView: props.currentInfoView
+			})
+		)
+	);
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(InfoViewContainer);
+
+/***/ }),
+/* 226 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
 var _Greeting = __webpack_require__(221);
 
 var _Greeting2 = _interopRequireDefault(_Greeting);
@@ -18604,7 +18779,7 @@ var _styles = __webpack_require__(65);
 
 var _styles2 = _interopRequireDefault(_styles);
 
-var _InfoViewContainer = __webpack_require__(226);
+var _InfoViewContainer = __webpack_require__(225);
 
 var _InfoViewContainer2 = _interopRequireDefault(_InfoViewContainer);
 
@@ -18694,74 +18869,6 @@ var ViewHandler = function ViewHandler(props) {
 };
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(ViewHandler);
-
-/***/ }),
-/* 226 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _AboutView = __webpack_require__(219);
-
-var _AboutView2 = _interopRequireDefault(_AboutView);
-
-var _AboutMenu = __webpack_require__(218);
-
-var _AboutMenu2 = _interopRequireDefault(_AboutMenu);
-
-var _About = __webpack_require__(217);
-
-var _About2 = _interopRequireDefault(_About);
-
-var _reactRedux = __webpack_require__(64);
-
-var _redux = __webpack_require__(34);
-
-var _index = __webpack_require__(82);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-// sends store state into AppView as props
-function mapStateToProps(state) {
-	return {
-		currentInfoView: state.currentInfoView
-	};
-}
-
-// links actions with redux to be available as props in AppView
-function mapDispatchToProps(dispatch) {
-	return (0, _redux.bindActionCreators)({ navTabChanged: _index.navTabChanged, infoViewChanged: _index.infoViewChanged }, dispatch);
-}
-
-var InfoViewContainer = function InfoViewContainer(props) {
-	return _react2.default.createElement(
-		'div',
-		null,
-		_react2.default.createElement(
-			_AboutView2.default,
-			null,
-			_react2.default.createElement(_AboutMenu2.default, {
-				infoViewChanged: props.infoViewChanged,
-				navTabChanged: props.navTabChanged,
-				currentInfoView: props.currentInfoView
-			}),
-			_react2.default.createElement(_About2.default, {
-				currentInfoView: props.currentInfoView
-			})
-		)
-	);
-};
-
-exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(InfoViewContainer);
 
 /***/ }),
 /* 227 */

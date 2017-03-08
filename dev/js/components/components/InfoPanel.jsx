@@ -9,7 +9,7 @@ const InfoPanel = (props) => {
 
 	const divStyle = {
 		backgroundColor: props.backgroundColor,
-		height: 300,
+		height: 350,
 		textAlign: "center",
 		color: textColor,
 	};

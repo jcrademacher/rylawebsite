@@ -22,7 +22,7 @@ const Greeting = (props) => {
 
 	return (
 		<div style={greeting}>
-			<h1 style={{fontSize: 60}}><i>Be your best self</i></h1>
+			<h1 style={{fontSize: 60}}><i>Be a Gift to the World</i></h1>
 			<Button bsStyle="success" onClick={props.onClick}>
 				How?
 			</Button>
