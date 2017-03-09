@@ -108,9 +108,8 @@ const FAQ = () => (
 			Q: <b>What should I bring?</b><br/>
 			A:
 			<ul>
-s
 				<li>Consult the Equipment list for personal belongings and necessities.</li>
-				Parents who plan on attending Wednesday Night BBQ should bring cash on registration day for tickets.
+				Parents who plan on attending Wednesday Night BBQ should bring ˝cash on registration day for tickets.
 				Students need the following for registration
 				Medical Form - (Either BSA form by itself or accompanied by a doctor’s form). You should have already submitted
 				this form by June 1st, but if you have not, bring it with you. (exception process)
