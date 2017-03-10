@@ -150,22 +150,22 @@ const FAQ = () => (
 			the scholarship for you to attend, upon your return from camp. Many clubs invite you back sometime in the fall to speak
 			at one of their meetings.<br/><br/>
 
-			Q: How do I arrange transportation?<br/>
+			Q: <b>How do I arrange transportation?</b><br/>
 			A: Participants are responsible for their own travel arrangements. Students are NOT allowed to drive themselves or
 			their friends to RYLA. You may contact your sponsoring Rotary Club to assist you with transportation.<br/><br/>
 
-			Q: What is Rotary?<br/>
+			Q: <b>What is Rotary?</b><br/>
 			A: Rotary is one of the largest international service organization in the world with more than 28,000 clubs in 160 counties.
 			District 7780 consists of 40 clubs in Maine and New Hampshire. Rotarians are dedicated to humanitarian service,
 			high ethical standards in business and their professions and the promotion of world understanding and peace.<br/><br/>
 
-			Q: Why RYLA (Rotary Youth Leadership Awards)?<br/>
+			Q: <b>Why RYLA (Rotary Youth Leadership Awards)?</b><br/>
 			A: Strong leaders are made, not born. Leadership skills and principles are learned, not inherited. Rotary clubs around
 			the world are dedicated to helping young people develop their skills to the fullest. We believe that RYLA will assist
 			young people to realize thier potential and to adapt to experiences within their life and their communities. RYLA enables
 			participants to join other young people from across our District. RYLA participants come together to exchange ideas,
 			plans and opinions with other talented and energetic people like yourself in a supportive atmosphere, free from pressure
-			and distractions.
+			and distractions.<br/>
 		</p>
 	</div>
 );
