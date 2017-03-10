@@ -51,6 +51,7 @@ class AboutView extends React.Component {
 				textAlign: "center",
 				padding: this.state.windowWidth >= 768 ? 10:60,
 				// conditional, 10 padding if greater, 60 if less
+				height: "40%"
 			}
 		}
 
@@ -63,7 +64,7 @@ class AboutView extends React.Component {
 						{About}
 					</div>
 					<div style={styles.right}>
-						<div style={{height: "60vh"}}>
+						<div style={{height: "60%"}}>
 							<br/><br/>
 							{React.cloneElement(AboutMenu, {dropdown: false})} {/* passes additional props to AboutMenu */}
 						</div>
