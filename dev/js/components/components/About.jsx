@@ -1,4 +1,5 @@
 import React from 'react';
+import {PageHeader} from 'react-bootstrap';
 
 const divStyle = {
 	//border: "1px solid black",
@@ -9,6 +10,9 @@ const AboutRYLA = () => (
 	<div style={divStyle}>
 		<h1>About RYLA</h1>
 		<hr/>
+
+		<h2><i>"Quote"</i> <small>Person who said quote</small></h2>
+
 		<p>
 			<b>RYLA</b> is Rotary's youth leadership training program.  Though there are many variations for RYLA programs, our district's
 			RYLA works with students the June after their sophomore year in high school.  RYLA programs in other areas are designed for
