@@ -76,12 +76,23 @@ const Directions = () => (
 const Principles = () => (
 	<div style={divStyle}>
 		<h1>Principles of Rotary</h1>
-		<hr/>
 		<h3><b>Theme:</b></h3>
 		<p>Every year the newly elected Rotary International President chooses a theme for Rotarians during his/her
 			presidency. Last year's theme was <i>Be a gift to the world</i>. This year's theme is <i>Making a Difference</i>, chosen by
 			current president Ian Riseley. The theme is meant to serve as general ethical and moral guideline for all Rotarians across
 			the globe.
+		</p><br></br>
+		<h3><b>The Four-Way Test:</b></h3>
+		<h3>Is it the truth?</h3>
+		<h3>Is it fair to all concerned?</h3>
+		<h3>Will it build goodwill and better friendships?</h3>
+		<h3>Will it be beneficial to all concerned?</h3>
+		<br></br>
+		<p>
+			The four way test is how we at RYLA and Rotary gauge our actions and words towards others and towards our community. Humans can
+			be impulsive, so it is important to have a guideline that a leader may fall back on when it comes time to make important decisions.
+			The four way test is the best way to examine yourself and your actions; if any one of these themes appears to have been violated
+			in any dilemma, you may need to reassess the situation before moving on.
 		</p>
 	</div>
 );
