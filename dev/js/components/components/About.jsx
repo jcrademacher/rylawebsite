@@ -109,15 +109,63 @@ const FAQ = () => (
 			A:
 			<ul>
 				<li>Consult the Equipment list for personal belongings and necessities.</li>
-				Parents who plan on attending Wednesday Night BBQ should bring ˝cash on registration day for tickets.
-				Students need the following for registration
-				Medical Form - (Either BSA form by itself or accompanied by a doctor’s form). You should have already submitted
-				this form by June 1st, but if you have not, bring it with you. (exception process)
-				Any medications required during the week. Do not pack medication in your luggage.
-				Any updated information that has changed since your application. Students will not be permitted to travel with anybody
-				other than a parent or guardian unless their names are on the registration forms that were sent to RYLA.
-				Photo Release Form
-			</ul>
+				<li>Parents who plan on attending Wednesday Night BBQ should bring cash on registration day for tickets.</li>
+				<li>Students need the following for registration</li>
+				<ol>
+					<li>Medical Form - (Either BSA form by itself or accompanied by a doctor’s form). You should have already submitted
+						this form by June 1st, but if you have not, bring it with you. (exception process)
+					</li>
+
+					<li>Any medications required during the week. <b>Do not pack medication in your luggage.</b></li>
+					<li>Any updated information that has changed since your application. Students will not be permitted to travel with anybody
+						other than a parent or guardian unless their names are on the registration forms that were sent to RYLA.
+					</li>
+					<li>Photo Release Form</li>
+				</ol>
+			</ul><br/><br/>
+
+			Q: <b>How should I dress at the conference?</b><br/>
+			A: This equipment list is designed to help you prepare for 4 days and 3 nights. Prepare for rain, as well as heat and/or
+			cool evenings—possibly even cold. RYLA is an <b>OUTDOOR</b> program and will continue regardless of weather. It is best
+			to dress in layers so you can peel off and add as needed. Having too many clothes is much better than not having
+			enough. Students should dress appropriately for a coed camping environment. A good rule of thumb is: if your school
+			wouldn’t permit you to wear it to Phys Ed class, don’t wear it to RYLA.<br/> <br/>
+
+			Q: <b>Is there a telephone at the conference site?</b><br/>
+			A: Yes, there is a phone available to participants to contact their parents/guardians only. <b>DO NOT BRING CELL
+			PHONES.</b> They will not be protected from the elements and you will not be permitted to use them at camp.<br/><br/>
+
+			Q: <b>One of my friends is going, can we share a tent / be in the same group?</b><br/>
+			A: <b>No</b>, the LEG’s are set up so that there will be no two people from the same school together. LEGs and camp sites
+			are arranged in random order. This gives everyone a chance to start fresh and at the same level.<br/> <br/>
+
+			Q: <b>Can I bring my cell phone/radio/tablet/lap top/hairdryer/curling iron?</b><br/>
+			A: <b>No.</b> RYLA is intentionally built to be an outdoor, electronic free camp. Electricity is limited to the dining hall, camp
+			offices, and bathroom facilities. There will be no use for electronic devices at camp. There will also be no protection
+			from theft or weather damage so please do not bring anything electronic with you. <br/><br/>
+
+			Q: <b>Do I need money?</b><br/>
+			A: No Rotary District 7780 and your local Rotary Clubs have taken care of all expenses for your week at camp by
+			providing you with a scholarship. The RYLA staff highly encourages you to formally thank the Rotary Club that provided
+			the scholarship for you to attend, upon your return from camp. Many clubs invite you back sometime in the fall to speak
+			at one of their meetings.<br/><br/>
+
+			Q: How do I arrange transportation?<br/>
+			A: Participants are responsible for their own travel arrangements. Students are NOT allowed to drive themselves or
+			their friends to RYLA. You may contact your sponsoring Rotary Club to assist you with transportation.<br/><br/>
+
+			Q: What is Rotary?<br/>
+			A: Rotary is one of the largest international service organization in the world with more than 28,000 clubs in 160 counties.
+			District 7780 consists of 40 clubs in Maine and New Hampshire. Rotarians are dedicated to humanitarian service,
+			high ethical standards in business and their professions and the promotion of world understanding and peace.<br/><br/>
+
+			Q: Why RYLA (Rotary Youth Leadership Awards)?<br/>
+			A: Strong leaders are made, not born. Leadership skills and principles are learned, not inherited. Rotary clubs around
+			the world are dedicated to helping young people develop their skills to the fullest. We believe that RYLA will assist
+			young people to realize thier potential and to adapt to experiences within their life and their communities. RYLA enables
+			participants to join other young people from across our District. RYLA participants come together to exchange ideas,
+			plans and opinions with other talented and energetic people like yourself in a supportive atmosphere, free from pressure
+			and distractions.
 		</p>
 	</div>
 );
