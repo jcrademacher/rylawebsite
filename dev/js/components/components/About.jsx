@@ -12,6 +12,9 @@ const AboutRYLA = () => (
 		<hr/>
 
 		<h2><i>"Quote"</i> <small>Person who said quote</small></h2>
+		<h2 style={{textAlign: "right"}}><i>"Quote2"</i> <small>Person who said quote2</small></h2>
+		<h2><i>"Quote3"</i> <small>Person who said quote3</small></h2>
+		<br/>
 
 		<p>
 			<b>RYLA</b> is Rotary's youth leadership training program.  Though there are many variations for RYLA programs, our district's
@@ -177,7 +180,7 @@ const FAQ = () => (
 			Q: <b>Why RYLA (Rotary Youth Leadership Awards)?</b><br/>
 			A: Strong leaders are made, not born. Leadership skills and principles are learned, not inherited. Rotary clubs around
 			the world are dedicated to helping young people develop their skills to the fullest. We believe that RYLA will assist
-			young people to realize thier potential and to adapt to experiences within their life and their communities. RYLA enables
+			young people to realize their potential and to adapt to experiences within their life and their communities. RYLA enables
 			participants to join other young people from across our District. RYLA participants come together to exchange ideas,
 			plans and opinions with other talented and energetic people like yourself in a supportive atmosphere, free from pressure
 			and distractions.<br/>
@@ -188,7 +191,9 @@ const FAQ = () => (
 const About = (props) => {
 	switch (props.currentInfoView) {
 		case 0:
-			return <AboutRYLA/>;
+			return (
+				<AboutRYLA/>
+			);
 			break;
 		case 1:
 			return <Principles/>

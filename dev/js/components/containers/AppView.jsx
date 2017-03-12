@@ -1,23 +1,12 @@
 import React from 'react';
-import Navigation from '../components/Navigation.jsx';
-import ViewHandler from '../containers/ViewHandler.jsx';
 
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
-import {navTabChanged} from '../../actions/index.js';
-import {infoViewChanged} from '../../actions/index.js';
+import AppContainer from './AppContainer.jsx';
 
-// sends store state into AppView as props
-function mapStateToProps(state) {
-	return {
-		currentTab: state.currentTab
-	};
-}
+import PhotoViewer from '../components/PhotoViewer.jsx';
+import InfoViewContainer from '../containers/InfoViewContainer.jsx';
+import Home from '../components/Home.jsx';
 
-// links actions with redux to be available as props in AppView
-function mapDispatchToProps(dispatch) {
-	return bindActionCreators({navTabChanged}, dispatch);
-}
+import { Router, Route, IndexRoute, browserHistory} from 'react-router';
 
 /*
 	AppView Container
@@ -26,15 +15,17 @@ function mapDispatchToProps(dispatch) {
 /*onChange={props.navTabChanged}*/
 const AppView = (props) => {
 	return (
-		<div>
-			<Navigation
-				navTabChanged={props.navTabChanged}
-				currentTab={props.currentTab}
-			/>
-			<ViewHandler/>
-		</div>
+		<Router history={browserHistory}>
+			<Route path='/' component={AppContainer}>
+				<IndexRoute component={Home}/>
+				{/*<Route path='/MyRYLA' component={MyRYLA} />*/}
+				<Route path='/gallery' component={PhotoViewer}/>
+				<Route path='/about' component={InfoViewContainer}/>
+			</Route>
+			{/*<ViewHandler/>*/}
+		</Router>
 	);
 }
 
 // links AppView with redux
-export default connect(mapStateToProps, mapDispatchToProps)(AppView);
+export default AppView;
