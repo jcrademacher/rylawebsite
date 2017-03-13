@@ -6,7 +6,7 @@ const divStyle = {
 	margin: 20,
 }
 
-const AboutRYLA = () => (
+export const AboutRYLA = () => (
 	<div style={divStyle}>
 		<h1>About RYLA</h1>
 		<hr/>
@@ -40,7 +40,7 @@ const AboutRYLA = () => (
 	</div>
 );
 
-const Contact = () => (
+export const Contact = () => (
 	<div style={divStyle}>
 		<h1>Contact</h1>
 		<hr/>
@@ -59,7 +59,7 @@ const Contact = () => (
 	</div>
 );
 
-const Directions = () => (
+export const Directions = () => (
 	<div style={divStyle}>
 		<h1>Directions</h1>
 		<hr/>
@@ -80,7 +80,7 @@ const Directions = () => (
 	</div>
 );
 
-const Principles = () => (
+export const Principles = () => (
 	<div style={divStyle}>
 		<h1>Principles of Rotary</h1>
 		<h3><b>Theme:</b></h3>
@@ -104,7 +104,7 @@ const Principles = () => (
 	</div>
 );
 
-const FAQ = () => (
+export const FAQ = () => (
 	<div style={divStyle}>
 		<h1>FAQ</h1>
 		<hr/>
@@ -187,33 +187,3 @@ const FAQ = () => (
 		</p>
 	</div>
 );
-
-const About = (props) => {
-	switch (props.currentInfoView) {
-		case 0:
-			return (
-				<AboutRYLA/>
-			);
-			break;
-		case 1:
-			return <Principles/>
-			break;
-		case 2:
-			return <Contact/>;
-			break;
-		case 3:
-			return <Directions/>;
-			break;
-		case 4:
-			return <FAQ/>;
-			break;
-		default:
-			return (
-				<div style={divStyle}>
-					<h1>Not found</h1>
-				</div>
-			);
-	}
-};
-
-export default About;

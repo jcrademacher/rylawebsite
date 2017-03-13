@@ -1,9 +1,9 @@
 import React from 'react';
 import pageTheme from '../../styles.js';
-import {Carousel} from 'react-bootstrap';
-import {ResponsiveEmbed} from 'react-bootstrap';
 import {images} from '../../images.js';
 import parchment from '../../../../resources/parchment.png';
+
+import {ResponsiveEmbed} from 'react-bootstrap';
 
 const divStyle = {
 	backgroundColor: pageTheme.secondary,
@@ -23,9 +23,8 @@ const pictureSpanStyle = {
 // loops through all images and creates a carousel item
 const createCarouselItems = () => {
 	return images.map((img) => {
-		console.log("mapping");
 		return (
-			<div>
+			<div key={img}>
 				<span style={pictureSpanStyle}>
 					<ResponsiveEmbed a4by3>
 						<img

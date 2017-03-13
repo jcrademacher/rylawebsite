@@ -22,7 +22,7 @@ const Navigation = (props) => {
 				browserHistory.push('/');
 				break;
 			case 1:
-				browserHistory.push('/');
+				browserHistory.push('/MyRYLA');
 				break;
 			case 2:
 				browserHistory.push('/gallery');
@@ -57,7 +57,7 @@ const Navigation = (props) => {
 						onSelect={handleRouterLink}
 					>
 						<NavItem eventKey={0}>Home</NavItem>
-		        {/*<NavItem eventKey={1}>MyRYLA</NavItem>*/}
+		        <NavItem eventKey={1}>MyRYLA</NavItem>*
 						<NavItem eventKey={2}>Gallery</NavItem>
 		        <NavItem eventKey={3}>About RYLA</NavItem>
 		      </Nav>

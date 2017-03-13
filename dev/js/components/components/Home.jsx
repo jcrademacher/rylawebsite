@@ -4,30 +4,32 @@ import Footer from '../components/Footer.jsx';
 
 import React from 'react';
 
+import { browserHistory } from 'react-router';
+
 import pageTheme from '../../styles.js';
 
 const Home = (props) => (
 	<div>
-		<Greeting onClick={() => {props.navTabChanged(3); props.infoViewChanged(1)}}/>
+		<Greeting onClick={() => browserHistory.push('/about')}/>
 		<InfoPanel
 			title="Discover who we are and what happens at RYLA"
 			buttonLabel="About"
 			backgroundColor={pageTheme.secondary}
 			textColor="white"
-			onClick={() => { props.navTabChanged(3); props.infoViewChanged(0)}}
+			onClick={() => browserHistory.push('/about')}
 		/>
 		<InfoPanel
 			title="For sophomores entering their junior year of high school"
 			buttonLabel="Apply Now"
 			backgroundColor="white"
-			onClick={() => { props.navTabChanged(1) }}
+			onClick={() => browserHistory.push('/about')}
 		/>
 		<InfoPanel
 			title="Hosted at the beautiful BSA Camp Hinds in Raymond, ME"
 			buttonLabel="Directions"
 			backgroundColor={pageTheme.primary}
 			textColor="white"
-			onClick={() => { props.navTabChanged(3); props.infoViewChanged(3)}}
+			onClick={() => browserHistory.push('/about')}
 		/>
 		<Footer/>
 	</div>
