@@ -3,6 +3,8 @@ import pageTheme from '../../styles.js';
 import {images} from '../../images.js';
 import {Image} from 'react-bootstrap';
 
+import AboutMenu from '../components/AboutMenu.jsx';
+
 class AboutView extends React.Component {
 	constructor(props) {
 		super(props);
@@ -32,9 +34,7 @@ class AboutView extends React.Component {
   }
 
 	render() {
-
-		var AboutMenu = this.props.children[0];
-		var About = this.props.children[1];
+		var CurrentSection = this.props.children;
 
 		const styles = {
 			left: {
@@ -60,12 +60,12 @@ class AboutView extends React.Component {
 					<br/>
 					<br/>
 					<div style={styles.left}>
-						{About}
+						{CurrentSection}
 					</div>
 					<div style={styles.right}>
 						<div style={{height: 400}}>
 							<br/><br/>
-							{React.cloneElement(AboutMenu, {dropdown: false})} {/* passes additional props to AboutMenu */}
+							<AboutMenu path={this.props.location.pathname}/> {/* passes router path to AboutMenu */}
 						</div>
 						<div style={styles.image}>
 							<Image src={images[12]} responsive/>
@@ -82,10 +82,10 @@ class AboutView extends React.Component {
 						<Image src={images[12]} responsive/>
 					</div>
 					<div style={{textAlign: "center"}}>
-						{React.cloneElement(AboutMenu, {dropdown: true})}
+						<AboutMenu dropdown path={this.props.location.pathname}/>
 					</div>
 					<div>
-						{About}
+						{CurrentSection}
 					</div>
 				</div>
 			);
