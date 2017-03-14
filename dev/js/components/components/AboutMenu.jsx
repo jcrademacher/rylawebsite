@@ -18,16 +18,16 @@ const AboutMenu = (props) =>  {
 				browserHistory.push('/about');
 				break;
 			case 1:
-				browserHistory.push('/about/principles');
+				browserHistory.push('/principles');
 				break;
 			case 2:
-				browserHistory.push('/about/contact');
+				browserHistory.push('/contact');
 				break;
 			case 3:
-				browserHistory.push('/about/directions');
+				browserHistory.push('/directions');
 				break;
 			case 4:
-				browserHistory.push('/about/faq');
+				browserHistory.push('/faq');
 				break;
 		}
 	};
@@ -35,10 +35,10 @@ const AboutMenu = (props) =>  {
 	const getActiveKey = () => {
 		switch (props.path) {
 			case '/about': 						return 0;
-			case '/about/principles': return 1;
-			case '/about/contact': 		return 2;
-			case '/about/directions': return 3;
-			case '/about/faq': 				return 4;
+			case '/principles': return 1;
+			case '/contact': 		return 2;
+			case '/directions': return 3;
+			case '/faq': 				return 4;
 		}
 	}
 
@@ -63,7 +63,7 @@ const AboutMenu = (props) =>  {
 		}
 		else if(type == 'dropdown') {
 			return (
-				<DropdownButton title={navItems[props.currentInfoView]} onSelect={handleNavSelect}>
+				<DropdownButton title={navItems[getActiveKey()]} onSelect={handleNavSelect}>
 					{navItems.map((title, index) => {
 						return (
 							<MenuItem eventKey={index}>{title}</MenuItem>
