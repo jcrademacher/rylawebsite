@@ -1,7 +1,6 @@
 import React from 'react';
 import pageTheme from '../../styles.js';
 import {images} from '../../images.js';
-import parchment from '../../../../resources/parchment.png';
 
 import {ResponsiveEmbed} from 'react-bootstrap';
 
