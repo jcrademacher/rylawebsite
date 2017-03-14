@@ -6,8 +6,6 @@ import {PropTypes} from 'react';
 
 import { Link } from 'react-router';
 
-import { browserHistory } from 'react-router';
-
 const rylaStyle = {
 	height: 30,
 	width: 80
@@ -15,20 +13,19 @@ const rylaStyle = {
 
 const Navigation = (props) => {
 	const handleRouterLink = (key) => {
-		console.log("key: ", key);
 
 		switch (key) {
 			case 0:
-				browserHistory.push('/');
+				props.router.push('/');
 				break;
 			case 1:
-				browserHistory.push('/MyRYLA');
+				props.router.push('/MyRYLA');
 				break;
 			case 2:
-				browserHistory.push('/gallery');
+				props.router.push('/gallery');
 				break;
 			case 3:
-				browserHistory.push('/about');
+				props.router.push('/about');
 				break;
 		}
 	};
@@ -39,6 +36,7 @@ const Navigation = (props) => {
 			case '/MyRYLA': return 1;
 			case '/gallery': return 2;
 			case '/about': return 3;
+			default: return 3;
 		}
 	}
 
@@ -57,7 +55,7 @@ const Navigation = (props) => {
 						onSelect={handleRouterLink}
 					>
 						<NavItem eventKey={0}>Home</NavItem>
-		        <NavItem eventKey={1}>MyRYLA</NavItem>*
+		        <NavItem eventKey={1}>MyRYLA</NavItem>
 						<NavItem eventKey={2}>Gallery</NavItem>
 		        <NavItem eventKey={3}>About RYLA</NavItem>
 		      </Nav>
