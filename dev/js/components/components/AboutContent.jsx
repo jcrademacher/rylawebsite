@@ -1,5 +1,4 @@
 import React from 'react';
-import {PageHeader} from 'react-bootstrap';
 
 const divStyle = {
 	//border: "1px solid black",
@@ -113,7 +112,7 @@ export const FAQ = () => (
 			A: Sunday June 25—Wednesday June 28 2017.<br/><br/>
 			Q: <b>What time should I arrive?</b><br/>
 			A: All participants are expected to arrive at 8:30 A.M. on Sunday, June 25th, 2017.<br/><br/>
-			Q: <b>I have other plans on Sunday morning, May I arrive latse?</b><br/>
+			Q: <b>I have other plans on Sunday morning, May I arrive late?</b><br/>
 			A: Unfortunately, the answer is no. In the past we have alloswed participants to arrive late, they never really seem to
 			catch up. RYLA is a fast paced conference. It’s also not faisr to the rest of your group who will depend on you.<br/><br/>
 			Q: <b>What time is RYLA over?</b><br/>
