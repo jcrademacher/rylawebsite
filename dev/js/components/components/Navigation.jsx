@@ -6,6 +6,8 @@ import {PropTypes} from 'react';
 
 import { Link } from 'react-router';
 
+import { browserHistory } from 'react-router';
+
 const rylaStyle = {
 	height: 30,
 	width: 80
@@ -16,16 +18,16 @@ const Navigation = (props) => {
 
 		switch (key) {
 			case 0:
-				props.router.push('/');
+				browserHistory.push('/');
 				break;
 			case 1:
-				props.router.push('/MyRYLA');
+				browserHistory.push('/MyRYLA');
 				break;
 			case 2:
-				props.router.push('/gallery');
+				browserHistory.push('/gallery');
 				break;
 			case 3:
-				props.router.push('/about');
+				browserHistory.push('/about');
 				break;
 		}
 	};
