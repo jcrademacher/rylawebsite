@@ -1,3 +1,7 @@
+
+
+
+
 import React from 'react';
 
 import AppContainer from './AppContainer.jsx';
@@ -20,20 +24,48 @@ const MyRYLA = (props) => (
 	<div></div>
 )
 
+const AboutRYLAWrapper = (props) => (
+	<AboutView path={props.location.pathname}>
+		<AboutRYLA/>
+	</AboutView>
+);
+
+const ContactWrapper = (props) => (
+	<AboutView path={props.location.pathname}>
+		<Contact/>
+	</AboutView>
+);
+
+const DirectionsWrapper = (props) => (
+	<AboutView path={props.location.pathname}>
+		<Directions/>
+	</AboutView>
+);
+
+const PrinciplesWrapper = (props) => (
+	<AboutView path={props.location.pathname}>
+		<Principles/>
+	</AboutView>
+);
+
+const FAQWrapper = (props) => (
+	<AboutView path={props.location.pathname}>
+		<FAQ/>
+	</AboutView>
+);
+
 const AppView = (props) => {
 	return (
 		<Router history={browserHistory}>
 			<Route path='/' component={AppContainer}>
 				<IndexRoute component={Home}/>
-				<Route path='/MyRYLA' component={MyRYLA} />
-				<Route path='/gallery' component={PhotoViewer}/>
-				<Route path='/about' component={AboutView}>
-					<IndexRoute component={AboutRYLA}/>
-					<Route path='/about/contact' component={Contact}/>
-					<Route path='/about/directions' component={Directions}/>
-					<Route path='/about/principles' component={Principles}/>
-					<Route path='/about/faq' component={FAQ}/>
-				</Route>
+				<Route path='MyRYLA' component={MyRYLA} />
+				<Route path='gallery' component={PhotoViewer}/>
+				<Route path='about' component={AboutRYLAWrapper}/>
+				<Route path='contact' component={ContactWrapper}/>
+				<Route path='directions' component={DirectionsWrapper}/>
+				<Route path='principles' component={PrinciplesWrapper}/>
+				<Route path='faq' component={FAQWrapper}/>
 			</Route>
 		</Router>
 	);
