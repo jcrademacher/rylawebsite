@@ -65,7 +65,7 @@ class AboutView extends React.Component {
 					<div style={styles.right}>
 						<div style={{height: 400}}>
 							<br/><br/>
-							<AboutMenu path={this.props.location.pathname}/> {/* passes router path to AboutMenu */}
+							<AboutMenu path={this.props.path}/> {/* passes router path to AboutMenu */}
 						</div>
 						<div style={styles.image}>
 							<Image src={images[12]} responsive/>
@@ -82,7 +82,7 @@ class AboutView extends React.Component {
 						<Image src={images[12]} responsive/>
 					</div>
 					<div style={{textAlign: "center"}}>
-						<AboutMenu dropdown path={this.props.location.pathname}/>
+						<AboutMenu dropdown path={this.props.path}/>
 					</div>
 					<div>
 						{CurrentSection}
