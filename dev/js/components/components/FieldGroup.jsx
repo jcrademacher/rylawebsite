@@ -1,10 +1,10 @@
 import React from 'react';
-import {FormGroup, ControlLabel, HelpBlock} from 'react-bootstrap'
+import {FormGroup, FormControl, ControlLabel, HelpBlock} from 'react-bootstrap';
 
-const FieldGroup = ({id, label, helpLabel...props}) => (
+const FieldGroup = ({id, label, helpLabel, type}) => (
 	<FormGroup controlId={id}>
-    <ControlLabel>{label}</ControlLabel>
-    <FormControl {...props} />
+    <h3 style={{fontSize: 20}}>{label}</h3>
+    <FormControl type={type} />
     {helpLabel && <HelpBlock>{helpLabel}</HelpBlock>}
   </FormGroup>
 );
