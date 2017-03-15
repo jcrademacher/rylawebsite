@@ -2,8 +2,11 @@ var path = require('path');
 var webpack = require('webpack');
 
 module.exports = {
-	entry: './dev/js/index.js',
-	output: { path: './src/pages', filename: 'main.bundle.js'},
+	entry: {
+		main: './dev/js/main.index.js',
+		createAccount: './dev/js/createAccount.index.js'
+	},
+	output: { path: './src/pages', filename: '[name].bundle.js'},
 	module: {
 		loaders: [
 			{
