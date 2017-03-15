@@ -5,8 +5,10 @@ import AppContainer from './AppContainer.jsx';
 import PhotoViewer from '../components/PhotoViewer.jsx';
 import Home from '../components/Home.jsx';
 import AboutView from '../components/AboutView.jsx';
+import MyRYLA from '../components/MyRYLA.jsx';
 
-import { Router, Route, IndexRoute, browserHistory} from 'react-router';
+import { Route, IndexRoute, browserHistory} from 'react-router';
+import { Router } from 'react-stormpath';
 
 import { AboutRYLA, Contact, Directions, Principles, FAQ} from '../components/AboutContent.jsx';
 
@@ -15,10 +17,6 @@ import { AboutRYLA, Contact, Directions, Principles, FAQ} from '../components/Ab
 	Holds all necessary components for sitepage
 */
 /*onChange={props.navTabChanged}*/
-
-const MyRYLA = (props) => (
-	<div></div>
-)
 
 const AboutRYLAWrapper = (props) => (
 	<AboutView path={props.location.pathname}>
@@ -63,6 +61,7 @@ const AppView = (props) => {
 				<Route path='principles' component={PrinciplesWrapper}/>
 				<Route path='faq' component={FAQWrapper}/>
 			</Route>
+			<Route path='*' component={() => <h1>404: Not Found</h1>}/>
 		</Router>
 	);
 }
