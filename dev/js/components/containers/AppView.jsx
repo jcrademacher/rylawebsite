@@ -8,7 +8,6 @@ import AboutView from '../components/AboutView.jsx';
 import MyRYLA from '../components/MyRYLA.jsx';
 
 import { Route, IndexRoute, browserHistory} from 'react-router';
-import { Router } from 'react-stormpath';
 
 import { AboutRYLA, Contact, Directions, Principles, FAQ} from '../components/AboutContent.jsx';
 
