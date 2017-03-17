@@ -1,50 +1,117 @@
-import Auth0Lock from 'auth0-lock';
 import { browserHistory } from 'react-router';
+import { EventEmitter } from 'events';
+import { isTokenExpired } from './jwtHelper';
+import auth0 from 'auth0-js';
 
-export default class AuthService {
-  constructor(clientId, domain) {
+class AuthService extends EventEmitter {
+	constructor(clientId, domain) {
+    super()
     // Configure Auth0
-    this.lock = new Auth0Lock(clientId, domain, {
-      auth: {
-        redirectUrl: 'http://localhost:8080/login',
-        responseType: 'token'
+    this.auth0 = new auth0.WebAuth({
+      clientID: 'pgRvGMvn0pF7S6eWG65boq9g3aWfAnxy',
+      domain: 'jrademacher.auth0.com',
+      responseType: 'token id_token',
+      redirectUri: 'http://localhost:8080/login'
+    })
+
+		this.login = this.login.bind(this)
+    this.signup = this.signup.bind(this)
+    this.loginWithGoogle = this.loginWithGoogle.bind(this)
+	}
+
+	// logs user in with given username and password
+	login(username, password) {
+    this.auth0.client.login({
+      realm: 'Username-Password-Authentication',
+      username,
+      password
+    }, (err, authResult) => {
+      if (err) {
+        alert('Error: ' + err.description)
+        return
+      }
+      if (authResult && authResult.idToken && authResult.accessToken) {
+        this.setToken(authResult.accessToken, authResult.idToken)
+        browserHistory.replace('/MyRYLA')
       }
     })
-    // Add callback for lock `authenticated` event
-    this.lock.on('authenticated', this._doAuthentication.bind(this))
-    // binds login functions to keep this context
-    this.login = this.login.bind(this)
   }
 
-  _doAuthentication(authResult) {
-    // Saves the user token
-    this.setToken(authResult.idToken)
-    // navigate to the home route
-    browserHistory.replace('/home')
+	// signs a user up
+	signup(email, password, data){
+    this.auth0.redirect.signupAndLogin({
+      connection: 'Username-Password-Authentication',
+      email,
+      password,
+    }, function(err) {
+      if (err) {
+        alert('Error: ' + err.description)
+      }
+    })
   }
 
-  login() {
-    // Call the show method to display the widget.
-    this.lock.show()
+	// logs in with google
+	loginWithGoogle() {
+    this.auth0.authorize({
+      connection: 'google-oauth2'
+    })
   }
 
-  loggedIn() {
+	// parses user info after signup
+	parseHash(hash) {
+    this.auth0.parseHash(hash, (err, authResult) => {
+      if (authResult && authResult.accessToken && authResult.idToken) {
+        this.setToken(authResult.accessToken, authResult.idToken)
+        browserHistory.replace('/MyRYLA')
+        this.auth0.client.userInfo(authResult.accessToken, (error, profile) => {
+          if (error) {
+            console.log('Error loading the Profile', error)
+          } else {
+            this.setProfile(profile)
+          }
+        })
+      } else if (authResult && authResult.error) {
+        alert('Error: ' + authResult.error)
+      }
+    })
+  }
+
+	loggedIn() {
     // Checks if there is a saved token and it's still valid
-    return !!this.getToken()
+    const token = this.getToken()
+    return !!token && !isTokenExpired(token)
   }
 
-  setToken(idToken) {
-    // Saves user token to local storage
+	setToken(accessToken, idToken) {
+    // Saves user access token and ID token into local storage
+    localStorage.setItem('access_token', accessToken)
     localStorage.setItem('id_token', idToken)
   }
 
+	setProfile(profile) {
+    // Saves profile data to localStorage
+    localStorage.setItem('profile', JSON.stringify(profile))
+    // Triggers profile_updated event to update the UI
+    this.emit('profile_updated', profile)
+  }
+
+  getProfile() {
+    // Retrieves the profile data from localStorage
+    const profile = localStorage.getItem('profile')
+    return profile ? JSON.parse(localStorage.profile) : {}
+  }
+
   getToken() {
-    // Retrieves the user token from local storage
+    // Retrieves the user token from localStorage
     return localStorage.getItem('id_token')
   }
 
   logout() {
-    // Clear user token and profile data from local storage
-    localStorage.removeItem('id_token');
+    // Clear user token and profile data from localStorage
+    localStorage.removeItem('id_token')
+    localStorage.removeItem('profile')
   }
 }
+
+// Auth0 authentication service
+export default AuthService;
