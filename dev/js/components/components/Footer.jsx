@@ -38,7 +38,12 @@ const Footer = () => {
 			<Logo height="40" width="40" src={fblogo}/>
 			<br/>
 			<p>Copyright &copy; 2017 Jack Rademacher</p>
-			<p>Created using React, Redux, and React-Bootstrap</p>
+			<p>Created using
+				<a style={{color: "rgb(187, 187, 187)"}} href='https://facebook.github.io/react/'> React</a>,
+				 React-Router,
+				<a style={{color: "rgb(187, 187, 187)"}} href='https://auth0.com/'> Auth0 </a>
+				 and
+				<a style={{color: "rgb(187, 187, 187)"}} href='https://react-bootstrap.github.io/'> React-Bootstrap</a></p>
 			<br/>
 		</div>
 	);
