@@ -5,11 +5,14 @@ import AppContainer from './AppContainer.jsx';
 import PhotoViewer from '../components/PhotoViewer.jsx';
 import Home from '../components/Home.jsx';
 import AboutView from '../components/AboutView.jsx';
-import MyRYLA from '../components/MyRYLA.jsx';
+import Login from '../components/Login.jsx';
+import MyRYLA from '../containers/MyRYLA.jsx';
 
-import { Route, IndexRoute, browserHistory} from 'react-router';
+import { Router, Route, IndexRoute, browserHistory} from 'react-router';
 
 import { AboutRYLA, Contact, Directions, Principles, FAQ} from '../components/AboutContent.jsx';
+
+import AuthService from '../../utils/AuthService.js';
 
 /*
 	AppView Container
@@ -47,13 +50,22 @@ const FAQWrapper = (props) => (
 	</AboutView>
 );
 
+const auth = new AuthService('pgRvGMvn0pF7S6eWG65boq9g3aWfAnxy', 'jrademacher.auth0.com');
+
+// checks if user is logged in
+const requireAuth = (nextState, replace) => {
+	if(!auth.loggedIn())
+		replace({ pathname: '/login'});
+};
+
 const AppView = (props) => {
 	return (
 		<Router history={browserHistory}>
-			<Route path='/' component={AppContainer}>
+			<Route path='/' component={AppContainer} auth={auth}>
 				<IndexRoute component={Home}/>
-				<Route path='MyRYLA' component={MyRYLA} />
+				<Route path='login' component={Login} />
 				<Route path='gallery' component={PhotoViewer}/>
+				<Route path='MyRYLA' component={MyRYLA} onEnter={requireAuth}/>
 				<Route path='about' component={AboutRYLAWrapper}/>
 				<Route path='contact' component={ContactWrapper}/>
 				<Route path='directions' component={DirectionsWrapper}/>
