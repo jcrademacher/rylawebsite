@@ -26,7 +26,7 @@ class AppContainer extends React.Component {
 		return (
 			<div>
 				<Navigation path={this.props.location.pathname}/>
-				{React.cloneElement(this.props.children, ...this.props)}
+				{React.cloneElement(this.props.children, { auth: this.props.route.auth })}
 			</div>
 		);
 	}
