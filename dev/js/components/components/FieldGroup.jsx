@@ -32,7 +32,7 @@ export default class FieldGroup extends React.Component {
 FieldGroup.propTypes = {
 	id: T.string.isRequired,
 	label: T.string,
-	validationState: T.bool,
+	validationState: T.string,
 	placeholder: T.string,
 	feedback: T.bool,
 	type: T.string.isRequired,

@@ -8,8 +8,8 @@ class AuthService extends EventEmitter {
     super()
     // Configure Auth0
     this.auth0 = new auth0.WebAuth({
-      clientID: 'pgRvGMvn0pF7S6eWG65boq9g3aWfAnxy',
-      domain: 'jrademacher.auth0.com',
+      clientID: 'zE6b3E0Kl2TdxWAcyitudUApVOY8AUY6',
+      domain: 'ryla7780.auth0.com',
       responseType: 'token id_token',
       redirectUri: 'http://localhost:8080/login'
     })
@@ -27,13 +27,14 @@ class AuthService extends EventEmitter {
       password
     }, (err, authResult) => {
       if (err) {
-        alert('Error: ' + err.description)
-        return
+        return err;
       }
       if (authResult && authResult.idToken && authResult.accessToken) {
         this.setToken(authResult.accessToken, authResult.idToken)
         browserHistory.replace('/MyRYLA')
       }
+
+			return null;
     })
   }
 
@@ -45,8 +46,9 @@ class AuthService extends EventEmitter {
       password,
     }, function(err) {
       if (err) {
-        alert('Error: ' + err.description)
+        return err;
       }
+			return null;
     })
   }
 
@@ -61,9 +63,10 @@ class AuthService extends EventEmitter {
 	parseHash(hash) {
     this.auth0.parseHash(hash, (err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
-        this.setToken(authResult.accessToken, authResult.idToken)
-        browserHistory.replace('/MyRYLA')
-        this.auth0.client.userInfo(authResult.accessToken, (error, profile) => {
+        this.setToken(authResult.accessToken, authResult.idToken);
+        browserHistory.replace('/MyRYLA');
+
+				this.auth0.client.userInfo(authResult.accessToken, (error, profile) => {
           if (error) {
             console.log('Error loading the Profile', error)
           } else {

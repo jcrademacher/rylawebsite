@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Button, Grid, Col, Row } from 'react-bootstrap';
 
@@ -123,7 +124,7 @@ class Login extends React.Component {
 							bsStyle='success'
 							bsSize='large'
 							block
-							onClick={() => this.props.auth.signup(this.state.email, this.state.password);}>
+							onClick={() => this.props.auth.signup(this.state.email, this.state.password)}>
 							Register
 						</Button>
 					</div>
