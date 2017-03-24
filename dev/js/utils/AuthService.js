@@ -1,11 +1,11 @@
-import { browserHistory } from 'react-router';
 import { EventEmitter } from 'events';
+import { browserHistory } from 'react-router';
 import { isTokenExpired } from './jwtHelper';
 import auth0 from 'auth0-js';
 
 class AuthService extends EventEmitter {
 	constructor(clientId, domain) {
-    super()
+		super();
     // Configure Auth0
     this.auth0 = new auth0.WebAuth({
       clientID: 'zE6b3E0Kl2TdxWAcyitudUApVOY8AUY6',
@@ -16,46 +16,39 @@ class AuthService extends EventEmitter {
 
 		this.login = this.login.bind(this)
     this.signup = this.signup.bind(this)
-    this.loginWithGoogle = this.loginWithGoogle.bind(this)
 	}
 
 	// logs user in with given username and password
-	login(username, password) {
+	login(username, password, callback) {
     this.auth0.client.login({
       realm: 'Username-Password-Authentication',
       username,
       password
     }, (err, authResult) => {
-      if (err) {
-        return err;
+      if (err != undefined) {
+        callback(err.description);
+				return
       }
       if (authResult && authResult.idToken && authResult.accessToken) {
         this.setToken(authResult.accessToken, authResult.idToken)
         browserHistory.replace('/MyRYLA')
       }
-
-			return null;
     })
   }
 
 	// signs a user up
-	signup(email, password, data){
+	signup(email, password, callback, metadata){
+
     this.auth0.redirect.signupAndLogin({
       connection: 'Username-Password-Authentication',
       email,
       password,
-    }, function(err) {
-      if (err) {
-        return err;
+			user_metadata: metadata,
+    }, function(err, authResult) {
+      if (err != undefined) {
+        callback(err);
+				return;
       }
-			return null;
-    })
-  }
-
-	// logs in with google
-	loginWithGoogle() {
-    this.auth0.authorize({
-      connection: 'google-oauth2'
     })
   }
 
@@ -63,18 +56,21 @@ class AuthService extends EventEmitter {
 	parseHash(hash) {
     this.auth0.parseHash(hash, (err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
+				console.log('test');
         this.setToken(authResult.accessToken, authResult.idToken);
-        browserHistory.replace('/MyRYLA');
 
 				this.auth0.client.userInfo(authResult.accessToken, (error, profile) => {
           if (error) {
-            console.log('Error loading the Profile', error)
+            console.log('Error loading the Profile', error);
           } else {
-            this.setProfile(profile)
+            this.setProfile(profile);
           }
         })
+
+				browserHistory.replace('/MyRYLA');
+
       } else if (authResult && authResult.error) {
-        alert('Error: ' + authResult.error)
+        alert('Error: ' + authResult.error);
       }
     })
   }
@@ -94,8 +90,8 @@ class AuthService extends EventEmitter {
 	setProfile(profile) {
     // Saves profile data to localStorage
     localStorage.setItem('profile', JSON.stringify(profile))
-    // Triggers profile_updated event to update the UI
-    this.emit('profile_updated', profile)
+		// triggers event
+		this.emit('profile_updated', profile);
   }
 
   getProfile() {
