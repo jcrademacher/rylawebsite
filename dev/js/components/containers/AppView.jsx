@@ -5,7 +5,9 @@ import AppContainer from './AppContainer.jsx';
 import PhotoViewer from '../components/PhotoViewer.jsx';
 import Home from '../components/Home.jsx';
 import AboutView from '../components/AboutView.jsx';
+import LoginView from '../components/LoginView.jsx';
 import Login from '../components/Login.jsx';
+import Register from '../components/Register.jsx';
 import MyRYLA from '../containers/MyRYLA.jsx';
 
 import { Router, Route, IndexRoute, browserHistory} from 'react-router';
@@ -63,7 +65,10 @@ const AppView = (props) => {
 		<Router history={browserHistory}>
 			<Route path='/' component={AppContainer} auth={auth}>
 				<IndexRoute component={Home}/>
-				<Route path='login' component={Login} />
+				<Route path='login' component={LoginView} >
+					<IndexRoute component={Login}/>
+					<Route path='register' component={Register}/>
+				</Route>
 				<Route path='gallery' component={PhotoViewer}/>
 				<Route path='MyRYLA' component={MyRYLA} onEnter={requireAuth}/>
 				<Route path='about' component={AboutRYLAWrapper}/>
