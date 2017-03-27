@@ -8,6 +8,7 @@ import AboutView from '../components/AboutView.jsx';
 import LoginView from '../components/LoginView.jsx';
 import Login from '../components/Login.jsx';
 import Register from '../components/Register.jsx';
+import Forgot from '../components/Forgot.jsx';
 import MyRYLA from '../containers/MyRYLA.jsx';
 
 import { Router, Route, IndexRoute, browserHistory} from 'react-router';
@@ -60,14 +61,21 @@ const requireAuth = (nextState, replace) => {
 		replace({ pathname: '/login'});
 };
 
+const parseAuthHash = (nextState, replace) => {
+  if (/access_token|id_token|error/.test(nextState.location.hash)) {
+    auth.parseHash(nextState.location.hash)
+  }
+}
+
 const AppView = (props) => {
 	return (
 		<Router history={browserHistory}>
 			<Route path='/' component={AppContainer} auth={auth}>
 				<IndexRoute component={Home}/>
 				<Route path='login' component={LoginView} >
-					<IndexRoute component={Login}/>
+					<IndexRoute component={Login} onEnter={parseAuthHash}/>
 					<Route path='register' component={Register}/>
+					<Route path='forgot' component={Forgot}/>
 				</Route>
 				<Route path='gallery' component={PhotoViewer}/>
 				<Route path='MyRYLA' component={MyRYLA} onEnter={requireAuth}/>
