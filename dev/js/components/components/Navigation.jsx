@@ -35,10 +35,10 @@ const Navigation = (props) => {
 	const getActiveKey = () => {
 		switch (props.path) {
 			case '/': return 0;
-			case '/MyRYLA': case '/login': return 1;
+			case '/MyRYLA': return 1;
 			case '/gallery': return 2;
 			case '/about': return 3;
-			default: return 3;
+			default: return 1;
 		}
 	}
 
