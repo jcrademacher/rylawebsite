@@ -19,8 +19,6 @@ const divStyle = {
 class Login extends React.Component {
 
 	render() {
-		this.props.auth.parseHash(window.location.hash);
-
 		return (
 			<div style={divStyle}>
 				<Grid>
