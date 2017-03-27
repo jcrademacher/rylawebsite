@@ -20,21 +20,23 @@ class AuthService extends EventEmitter {
 
 	// logs user in with given username and password
 	login(username, password, callback) {
-    this.auth0.client.login({
-      realm: 'Username-Password-Authentication',
+    this.auth0.redirect.loginWithCredentials({
+      connection: 'Username-Password-Authentication',
       username,
       password
-    }, (err, authResult) => {
-      if (err != undefined) {
-        callback(err.description);
-				return
-      }
-      if (authResult && authResult.idToken && authResult.accessToken) {
-        this.setToken(authResult.accessToken, authResult.idToken)
-        browserHistory.replace('/MyRYLA')
+    }, err => {
+      if (err) {
+        callback(err);
       }
     })
   }
+
+	changePassword(email, callback) {
+		this.auth0.changePassword({
+			connection: 'Username-Password-Authentication',
+			email: email,
+		}, callback);
+	}
 
 	// signs a user up
 	signup(email, password, callback, metadata){
@@ -54,15 +56,15 @@ class AuthService extends EventEmitter {
 
 	// parses user info after signup
 	parseHash(hash) {
-    this.auth0.parseHash(hash, (err, authResult) => {
+    this.auth0.parseHash({ hash, _idTokenVerification: false }, (err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
-				console.log('test');
         this.setToken(authResult.accessToken, authResult.idToken);
 
 				this.auth0.client.userInfo(authResult.accessToken, (error, profile) => {
           if (error) {
             console.log('Error loading the Profile', error);
           } else {
+						console.log('profile set');
             this.setProfile(profile);
           }
         })
