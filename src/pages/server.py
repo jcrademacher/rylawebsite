@@ -2,6 +2,8 @@ from BaseHTTPServer import BaseHTTPRequestHandler,HTTPServer
 
 class myHandler(BaseHTTPRequestHandler):
 	def do_GET(self):
+		self.path = self.path[self.path.rfind("/"):] # gets trailing path item after '/', so that files can be accessed
+
 		if self.path == '/':
 			self.path = '/index.html'
 		if not self.path.endswith('.html') and not self.path.endswith('.js') and not self.path.endswith('.jpg') and not self.path.endswith('.png'):
@@ -18,8 +20,6 @@ class myHandler(BaseHTTPRequestHandler):
 
 		f = open("." + self.path)
 
-		print f
-		
 		self.send_response(200)
 		self.send_header('Content-type',mimetype)
 		self.end_headers()
