@@ -5,6 +5,12 @@ import { browserHistory } from 'react-router';
 export default class MyRYLA extends React.Component {
 	constructor(props) {
 		super(props);
+
+		this.props.auth.on('profile_updated', () => this.setState({ name: this.props.auth.getProfile().user_metadata.name }));
+
+		this.state = {
+			name: this.props.auth.getProfile().user_metadata.name
+		}
 	}
 
 	logout() {
@@ -17,7 +23,7 @@ export default class MyRYLA extends React.Component {
 		return (
 			<div>
 				<br/><br/>
-				<h1>MyRYLA</h1>
+				<h1>{this.state.name}</h1>
 				<Button onClick={() => this.logout()}>Logout</Button>
 			</div>
 		);
