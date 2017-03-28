@@ -5,33 +5,19 @@ import {Image} from 'react-bootstrap';
 
 import AboutMenu from '../components/AboutMenu.jsx';
 
+import {connect} from 'react-redux';
+
+function mapStateToProps(state) {
+	return {
+		windowWidth: state.windowWidth,
+		windowHeight: state.windowHeight
+	}
+}
+
 class AboutView extends React.Component {
 	constructor(props) {
 		super(props);
-
-		this.state = {
-			windowWidth: window.innerWidth,
-			windowHeight: window.innerHeight
-		};
 	}
-
-	updateDimensions() {
-		this.setState({
-			windowWidth: window.innerWidth,
-			windowHeight: window.innerHeight
-		});
-	}
-
-	// adds resize event listener
-	componentDidMount() {
-    this.updateDimensions();
-    window.addEventListener("resize", this.updateDimensions.bind(this));
-  }
-
-	// removes resize event listener
-	componentWillUnmount() {
-    window.removeEventListener("resize", this.updateDimensions.bind(this));
-  }
 
 	render() {
 		var CurrentSection = this.props.children;
@@ -49,12 +35,12 @@ class AboutView extends React.Component {
 
 			image: {
 				textAlign: "center",
-				padding: this.state.windowWidth >= 768 ? 10:60,
+				padding: this.props.windowWidth >= 768 ? 10:60,
 				// conditional, 10 padding if greater, 60 if less
 			}
 		}
 
-		if(this.state.windowWidth >= 768) {
+		if(this.props.windowWidth >= 768) {
 			return (
 				<div>
 					<br/>
@@ -93,4 +79,4 @@ class AboutView extends React.Component {
 	}
 };
 
-export default AboutView;
+export default connect(mapStateToProps)(AboutView);
