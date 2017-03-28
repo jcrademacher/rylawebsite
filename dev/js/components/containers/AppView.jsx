@@ -15,6 +15,7 @@ import { Router, Route, IndexRoute, browserHistory} from 'react-router';
 
 import { AboutRYLA, Contact, Directions, Principles, FAQ} from '../components/AboutContent.jsx';
 
+
 import AuthService from '../../utils/AuthService.js';
 
 /*
@@ -65,29 +66,31 @@ const parseAuthHash = (nextState, replace) => {
   if (/access_token|id_token|error/.test(nextState.location.hash)) {
     auth.parseHash(nextState.location.hash)
   }
-}
+};
 
-const AppView = (props) => {
-	return (
-		<Router history={browserHistory}>
-			<Route path='/' component={AppContainer} auth={auth}>
-				<IndexRoute component={Home}/>
-				<Route path='login' component={LoginView} >
-					<IndexRoute component={Login} onEnter={parseAuthHash}/>
-					<Route path='register' component={Register}/>
-					<Route path='forgot' component={Forgot}/>
+class AppView extends React.Component {
+	render() {
+		return (
+			<Router history={browserHistory}>
+				<Route path='/' component={AppContainer} auth={auth}>
+					<IndexRoute component={Home}/>
+					<Route path='login' component={LoginView} >
+						<IndexRoute component={Login} onEnter={parseAuthHash}/>
+						<Route path='register' component={Register}/>
+						<Route path='forgot' component={Forgot}/>
+					</Route>
+					<Route path='gallery' component={PhotoViewer}/>
+					<Route path='MyRYLA' component={MyRYLA} onEnter={requireAuth}/>
+					<Route path='about' component={AboutRYLAWrapper}/>
+					<Route path='contact' component={ContactWrapper}/>
+					<Route path='directions' component={DirectionsWrapper}/>
+					<Route path='principles' component={PrinciplesWrapper}/>
+					<Route path='faq' component={FAQWrapper}/>
 				</Route>
-				<Route path='gallery' component={PhotoViewer}/>
-				<Route path='MyRYLA' component={MyRYLA} onEnter={requireAuth}/>
-				<Route path='about' component={AboutRYLAWrapper}/>
-				<Route path='contact' component={ContactWrapper}/>
-				<Route path='directions' component={DirectionsWrapper}/>
-				<Route path='principles' component={PrinciplesWrapper}/>
-				<Route path='faq' component={FAQWrapper}/>
-			</Route>
-			<Route path='*' component={() => <h1>404: Not Found</h1>}/>
-		</Router>
-	);
+				<Route path='*' component={() => <h1>404: Not Found</h1>}/>
+			</Router>
+		);
+	}
 }
 
 // links AppView with redux
