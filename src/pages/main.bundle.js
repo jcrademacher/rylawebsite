@@ -23075,6 +23075,8 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
@@ -23124,6 +23126,12 @@ var _AuthService = __webpack_require__(304);
 var _AuthService2 = _interopRequireDefault(_AuthService);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 /*
 	AppView Container
@@ -23184,40 +23192,57 @@ var parseAuthHash = function parseAuthHash(nextState, replace) {
 	}
 };
 
-var AppView = function AppView(props) {
-	return _react2.default.createElement(
-		_reactRouter.Router,
-		{ history: _reactRouter.browserHistory },
-		_react2.default.createElement(
-			_reactRouter.Route,
-			{ path: '/', component: _AppContainer2.default, auth: auth },
-			_react2.default.createElement(_reactRouter.IndexRoute, { component: _Home2.default }),
-			_react2.default.createElement(
-				_reactRouter.Route,
-				{ path: 'login', component: _LoginView2.default },
-				_react2.default.createElement(_reactRouter.IndexRoute, { component: _Login2.default, onEnter: parseAuthHash }),
-				_react2.default.createElement(_reactRouter.Route, { path: 'register', component: _Register2.default }),
-				_react2.default.createElement(_reactRouter.Route, { path: 'forgot', component: _Forgot2.default })
-			),
-			_react2.default.createElement(_reactRouter.Route, { path: 'gallery', component: _PhotoViewer2.default }),
-			_react2.default.createElement(_reactRouter.Route, { path: 'MyRYLA', component: _MyRYLA2.default, onEnter: requireAuth }),
-			_react2.default.createElement(_reactRouter.Route, { path: 'about', component: AboutRYLAWrapper }),
-			_react2.default.createElement(_reactRouter.Route, { path: 'contact', component: ContactWrapper }),
-			_react2.default.createElement(_reactRouter.Route, { path: 'directions', component: DirectionsWrapper }),
-			_react2.default.createElement(_reactRouter.Route, { path: 'principles', component: PrinciplesWrapper }),
-			_react2.default.createElement(_reactRouter.Route, { path: 'faq', component: FAQWrapper })
-		),
-		_react2.default.createElement(_reactRouter.Route, { path: '*', component: function component() {
-				return _react2.default.createElement(
-					'h1',
-					null,
-					'404: Not Found'
-				);
-			} })
-	);
-};
+var AppView = function (_React$Component) {
+	_inherits(AppView, _React$Component);
+
+	function AppView(props) {
+		_classCallCheck(this, AppView);
+
+		return _possibleConstructorReturn(this, (AppView.__proto__ || Object.getPrototypeOf(AppView)).call(this, props));
+	}
+
+	_createClass(AppView, [{
+		key: 'render',
+		value: function render() {
+			return _react2.default.createElement(
+				_reactRouter.Router,
+				{ history: _reactRouter.browserHistory },
+				_react2.default.createElement(
+					_reactRouter.Route,
+					{ path: '/', component: _AppContainer2.default, auth: auth },
+					_react2.default.createElement(_reactRouter.IndexRoute, { component: _Home2.default }),
+					_react2.default.createElement(
+						_reactRouter.Route,
+						{ path: 'login', component: _LoginView2.default },
+						_react2.default.createElement(_reactRouter.IndexRoute, { component: _Login2.default, onEnter: parseAuthHash }),
+						_react2.default.createElement(_reactRouter.Route, { path: 'register', component: _Register2.default }),
+						_react2.default.createElement(_reactRouter.Route, { path: 'forgot', component: _Forgot2.default })
+					),
+					_react2.default.createElement(_reactRouter.Route, { path: 'gallery', component: _PhotoViewer2.default }),
+					_react2.default.createElement(_reactRouter.Route, { path: 'MyRYLA', component: _MyRYLA2.default, onEnter: requireAuth }),
+					_react2.default.createElement(_reactRouter.Route, { path: 'about', component: AboutRYLAWrapper }),
+					_react2.default.createElement(_reactRouter.Route, { path: 'contact', component: ContactWrapper }),
+					_react2.default.createElement(_reactRouter.Route, { path: 'directions', component: DirectionsWrapper }),
+					_react2.default.createElement(_reactRouter.Route, { path: 'principles', component: PrinciplesWrapper }),
+					_react2.default.createElement(_reactRouter.Route, { path: 'faq', component: FAQWrapper })
+				),
+				_react2.default.createElement(_reactRouter.Route, { path: '*', component: function component() {
+						return _react2.default.createElement(
+							'h1',
+							null,
+							'404: Not Found'
+						);
+					} })
+			);
+		}
+	}]);
+
+	return AppView;
+}(_react2.default.Component);
 
 // links AppView with redux
+
+
 exports.default = AppView;
 
 /***/ }),
@@ -23233,36 +23258,33 @@ Object.defineProperty(exports, "__esModule", {
 
 var _redux = __webpack_require__(61);
 
-var CurrentTabReducer = function CurrentTabReducer() {
+var ProfileUpdatedReducer = function ProfileUpdatedReducer() {
 	var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
 	var action = arguments[1];
 
-	if (state == null) return 0; // default currentTab,
-	else {
-			switch (action.type) {
-				case "NAV_TAB_CHANGED":
-					return action.payload;
-					break;
-				default:
-					return state;
-			}
-		}
+	if (action.type == "PROFILE_UPDATED") return action.payload;else return state;
 };
 
-var InfoViewReducer = function InfoViewReducer() {
+var WindowWidthReducer = function WindowWidthReducer() {
 	var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
 	var action = arguments[1];
 
-	if (state == null) return 0;else {
-		if (action.type == "INFO_VIEW_CHANGED") return action.payload;else return state;
-	}
+	if (action.type == "WINDOW_WIDTH_UPDATED") return action.payload;else return state;
+};
+
+var WindowHeightReducer = function WindowHeightReducer() {
+	var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+	var action = arguments[1];
+
+	if (action.type == "WINDOW_HEIGHT_UPDATED") return action.payload;else return state;
 };
 
 // this is essentially what the 'store' looks like
 // the reducers return data that create a new store
 exports.default = (0, _redux.combineReducers)({
-	currentTab: CurrentTabReducer,
-	currentInfoView: InfoViewReducer
+	profile: ProfileUpdatedReducer,
+	windowWidth: WindowWidthReducer,
+	windowHeight: WindowHeightReducer
 });
 
 /***/ }),
@@ -25081,28 +25103,40 @@ Object.defineProperty(exports, "__esModule", {
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-var navTabChanged = exports.navTabChanged = function navTabChanged(currentTab) {
-	if (typeof currentTab != "number") {
-		throw "CurrentTab should be a number, got " + (typeof currentTab === "undefined" ? "undefined" : _typeof(currentTab));
+var setProfile = exports.setProfile = function setProfile(profile) {
+	if ((typeof profile === "undefined" ? "undefined" : _typeof(profile)) != "object") {
+		throw "Profile should be an object, got " + (typeof profile === "undefined" ? "undefined" : _typeof(profile));
 		return;
 	}
 
 	return {
-		type: "NAV_TAB_CHANGED",
-		payload: currentTab // returning an action with type and payload
+		type: "PROFILE_UPDATED",
+		payload: profile // returning an action with type and payload
 	};
 };
 
-// reducer for view of about section (contact, directions, about etc.)
-var infoViewChanged = exports.infoViewChanged = function infoViewChanged(currentInfoView) {
-	if (typeof currentInfoView != "number") {
-		throw "CurrentTab should be a number, got " + (typeof currentInfoView === "undefined" ? "undefined" : _typeof(currentInfoView));
+// the following two actions handling window resizing
+var setWindowWidth = exports.setWindowWidth = function setWindowWidth(width) {
+	if (typeof width != 'number') {
+		throw 'Width should be a number, got ' + (typeof width === "undefined" ? "undefined" : _typeof(width));
 		return;
 	}
 
 	return {
-		type: "INFO_VIEW_CHANGED",
-		payload: currentInfoView // string i.e., "about", "contact", "directions", etc.
+		type: "WINDOW_WIDTH_UPDATED",
+		payload: width
+	};
+};
+
+var setWindowHeight = exports.setWindowHeight = function setWindowHeight(height) {
+	if (typeof height != 'number') {
+		throw 'Height should be a number, got ' + (typeof height === "undefined" ? "undefined" : _typeof(height));
+		return;
+	}
+
+	return {
+		type: "WINDOW_HEIGHT_UPDATED",
+		payload: height
 	};
 };
 
@@ -25741,7 +25775,7 @@ var AboutMenu = function AboutMenu(props) {
 		} else if (type == 'dropdown') {
 			return _react2.default.createElement(
 				_reactBootstrap.DropdownButton,
-				{ title: navItems[getActiveKey()], onSelect: handleNavSelect },
+				{ id: 'dropdown', title: navItems[getActiveKey()], onSelect: handleNavSelect },
 				navItems.map(function (title, index) {
 					return _react2.default.createElement(
 						_reactBootstrap.MenuItem,
@@ -25794,6 +25828,8 @@ var _AboutMenu = __webpack_require__(289);
 
 var _AboutMenu2 = _interopRequireDefault(_AboutMenu);
 
+var _reactRedux = __webpack_require__(160);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -25802,47 +25838,23 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+function mapStateToProps(state) {
+	return {
+		windowWidth: state.windowWidth,
+		windowHeight: state.windowHeight
+	};
+}
+
 var AboutView = function (_React$Component) {
 	_inherits(AboutView, _React$Component);
 
 	function AboutView(props) {
 		_classCallCheck(this, AboutView);
 
-		var _this = _possibleConstructorReturn(this, (AboutView.__proto__ || Object.getPrototypeOf(AboutView)).call(this, props));
-
-		_this.state = {
-			windowWidth: window.innerWidth,
-			windowHeight: window.innerHeight
-		};
-		return _this;
+		return _possibleConstructorReturn(this, (AboutView.__proto__ || Object.getPrototypeOf(AboutView)).call(this, props));
 	}
 
 	_createClass(AboutView, [{
-		key: 'updateDimensions',
-		value: function updateDimensions() {
-			this.setState({
-				windowWidth: window.innerWidth,
-				windowHeight: window.innerHeight
-			});
-		}
-
-		// adds resize event listener
-
-	}, {
-		key: 'componentDidMount',
-		value: function componentDidMount() {
-			this.updateDimensions();
-			window.addEventListener("resize", this.updateDimensions.bind(this));
-		}
-
-		// removes resize event listener
-
-	}, {
-		key: 'componentWillUnmount',
-		value: function componentWillUnmount() {
-			window.removeEventListener("resize", this.updateDimensions.bind(this));
-		}
-	}, {
 		key: 'render',
 		value: function render() {
 			var CurrentSection = this.props.children;
@@ -25860,11 +25872,11 @@ var AboutView = function (_React$Component) {
 
 				image: {
 					textAlign: "center",
-					padding: this.state.windowWidth >= 768 ? 10 : 60
+					padding: this.props.windowWidth >= 768 ? 10 : 60
 				}
 			};
 
-			if (this.state.windowWidth >= 768) {
+			if (this.props.windowWidth >= 768) {
 				return _react2.default.createElement(
 					'div',
 					null,
@@ -25924,7 +25936,7 @@ var AboutView = function (_React$Component) {
 
 ;
 
-exports.default = AboutView;
+exports.default = (0, _reactRedux.connect)(mapStateToProps)(AboutView);
 
 /***/ }),
 /* 291 */
@@ -27051,7 +27063,7 @@ var _reactRedux = __webpack_require__(160);
 
 var _redux = __webpack_require__(61);
 
-var _index = __webpack_require__(287);
+var _actions = __webpack_require__(287);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -27061,19 +27073,16 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-/*
-// sends store state into AppView as props
 function mapStateToProps(state) {
 	return {
-		currentTab: state.currentTab,
-		currentInfoView: state.currentInfoView
+		windowWidth: state.windowWidth,
+		windowHeight: state.windowHeight
 	};
 }
 
-// links actions with redux to be available as props in AppView
 function mapDispatchToProps(dispatch) {
-	return bindActionCreators({navTabChanged, infoViewChanged}, dispatch);
-}*/
+	return (0, _redux.bindActionCreators)({ setWindowWidth: _actions.setWindowWidth, setWindowHeight: _actions.setWindowHeight }, dispatch);
+}
 
 var AppContainer = function (_React$Component) {
 	_inherits(AppContainer, _React$Component);
@@ -27085,6 +27094,23 @@ var AppContainer = function (_React$Component) {
 	}
 
 	_createClass(AppContainer, [{
+		key: 'updateDimensions',
+		value: function updateDimensions() {
+			this.props.setWindowWidth(window.innerWidth);
+			this.props.setWindowHeight(window.innerHeight);
+		}
+	}, {
+		key: 'componentDidMount',
+		value: function componentDidMount() {
+			this.updateDimensions();
+			window.addEventListener('resize', this.updateDimensions.bind(this));
+		}
+	}, {
+		key: 'componentWillUnmount',
+		value: function componentWillUnmount() {
+			window.removeEventListener("resize", this.updateDimensions.bind(this));
+		}
+	}, {
 		key: 'render',
 		value: function render() {
 			return _react2.default.createElement(
@@ -27101,7 +27127,7 @@ var AppContainer = function (_React$Component) {
 
 //export default connect(mapStateToProps, mapDispatchToProps)(AppContainer);
 
-exports.default = AppContainer;
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(AppContainer);
 
 /***/ }),
 /* 303 */
@@ -27120,9 +27146,17 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactBootstrap = __webpack_require__(21);
-
 var _reactRouter = __webpack_require__(26);
+
+var _AccountNav = __webpack_require__(635);
+
+var _AccountNav2 = _interopRequireDefault(_AccountNav);
+
+var _reactRedux = __webpack_require__(160);
+
+var _redux = __webpack_require__(61);
+
+var _actions = __webpack_require__(287);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -27132,53 +27166,46 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+// sends store state into AppView as props
+function mapStateToProps(state) {
+	return {
+		profile: state.profile
+	};
+}
+
+// links actions with redux to be available as props in AppView
+function mapDispatchToProps(dispatch) {
+	return (0, _redux.bindActionCreators)({ setProfile: _actions.setProfile }, dispatch);
+}
+
 var MyRYLA = function (_React$Component) {
 	_inherits(MyRYLA, _React$Component);
 
 	function MyRYLA(props) {
 		_classCallCheck(this, MyRYLA);
 
+		// when AuthService emits profile updated event, update redux
 		var _this = _possibleConstructorReturn(this, (MyRYLA.__proto__ || Object.getPrototypeOf(MyRYLA)).call(this, props));
 
 		_this.props.auth.on('profile_updated', function () {
-			return _this.setState({ name: _this.props.auth.getProfile().user_metadata.name });
+			_this.props.setProfile(_this.props.auth.getProfile());
 		});
 
-		_this.state = {
-			name: _this.props.auth.getProfile().user_metadata.name
-		};
+		_this.props.setProfile(_this.props.auth.getProfile());
 		return _this;
 	}
 
 	_createClass(MyRYLA, [{
-		key: 'logout',
-		value: function logout() {
-			this.props.auth.logout();
-
-			_reactRouter.browserHistory.replace('/login');
-		}
-	}, {
 		key: 'render',
 		value: function render() {
-			var _this2 = this;
+			var name = this.props.profile == null ? '' : this.props.profile.user_metadata.name;
 
 			return _react2.default.createElement(
 				'div',
 				null,
 				_react2.default.createElement('br', null),
 				_react2.default.createElement('br', null),
-				_react2.default.createElement(
-					'h1',
-					null,
-					this.state.name
-				),
-				_react2.default.createElement(
-					_reactBootstrap.Button,
-					{ onClick: function onClick() {
-							return _this2.logout();
-						} },
-					'Logout'
-				)
+				_react2.default.createElement(_AccountNav2.default, { auth: this.props.auth, name: name })
 			);
 		}
 	}]);
@@ -27186,7 +27213,7 @@ var MyRYLA = function (_React$Component) {
 	return MyRYLA;
 }(_react2.default.Component);
 
-exports.default = MyRYLA;
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(MyRYLA);
 
 /***/ }),
 /* 304 */
@@ -27299,7 +27326,6 @@ var AuthService = function (_EventEmitter) {
             if (error) {
               console.log('Error loading the Profile', error);
             } else {
-              console.log('profile set');
               _this2.setProfile(profile);
             }
           });
@@ -27337,7 +27363,7 @@ var AuthService = function (_EventEmitter) {
     value: function getProfile() {
       // Retrieves the profile data from localStorage
       var profile = localStorage.getItem('profile');
-      return profile ? JSON.parse(localStorage.profile) : {};
+      return profile ? JSON.parse(localStorage.profile) : null;
     }
   }, {
     key: 'getToken',
@@ -58513,6 +58539,60 @@ _reactDom2.default.render(_react2.default.createElement(
 	{ store: store },
 	_react2.default.createElement(App, null)
 ), document.getElementById('app'));
+
+/***/ }),
+/* 635 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouter = __webpack_require__(26);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var AccountNav = function AccountNav(props) {
+	var divStyle = {
+		//border: '1px solid black',
+		marginRight: 26,
+		marginLeft: 26
+	};
+
+	return _react2.default.createElement(
+		'div',
+		{ style: divStyle },
+		_react2.default.createElement('br', null),
+		_react2.default.createElement(
+			'span',
+			{ style: { textAlign: "right" } },
+			'Welcome, ',
+			props.name,
+			'! \u2003',
+			_react2.default.createElement(
+				_reactRouter.Link,
+				{ style: { color: 'gray' }, to: '/login', onClick: function onClick() {
+						return props.auth.logout();
+					} },
+				'Sign out'
+			)
+		),
+		_react2.default.createElement('hr', null)
+	);
+};
+
+AccountNav.propTypes = {
+	auth: _react.PropTypes.object.isRequired
+};
+
+exports.default = AccountNav;
 
 /***/ })
 /******/ ]);
