@@ -4,24 +4,36 @@ import Navigation from '../components/Navigation.jsx';
 
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {navTabChanged} from '../../actions/index.js';
-import {infoViewChanged} from '../../actions/index.js';
 
-/*
-// sends store state into AppView as props
+import { setWindowWidth } from '../../actions';
+import { setWindowHeight } from '../../actions';
+
 function mapStateToProps(state) {
 	return {
-		currentTab: state.currentTab,
-		currentInfoView: state.currentInfoView
-	};
+		windowWidth: state.windowWidth,
+		windowHeight: state.windowHeight
+	}
 }
 
-// links actions with redux to be available as props in AppView
 function mapDispatchToProps(dispatch) {
-	return bindActionCreators({navTabChanged, infoViewChanged}, dispatch);
-}*/
+	return bindActionCreators({ setWindowWidth, setWindowHeight }, dispatch)
+}
 
 class AppContainer extends React.Component {
+	updateDimensions() {
+		this.props.setWindowWidth(window.innerWidth);
+		this.props.setWindowHeight(window.innerHeight);
+	}
+
+	componentDidMount() {
+		this.updateDimensions();
+		window.addEventListener('resize', this.updateDimensions.bind(this));
+	}
+
+	componentWillUnmount() {
+		window.removeEventListener("resize", this.updateDimensions.bind(this));
+	}
+
 	render() {
 		return (
 			<div>
@@ -34,4 +46,4 @@ class AppContainer extends React.Component {
 
 //export default connect(mapStateToProps, mapDispatchToProps)(AppContainer);
 
-export default AppContainer;
+export default connect(mapStateToProps, mapDispatchToProps)(AppContainer);
