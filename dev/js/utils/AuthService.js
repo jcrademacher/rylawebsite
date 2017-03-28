@@ -64,7 +64,6 @@ class AuthService extends EventEmitter {
           if (error) {
             console.log('Error loading the Profile', error);
           } else {
-						console.log('profile set');
             this.setProfile(profile);
           }
         })
@@ -99,7 +98,7 @@ class AuthService extends EventEmitter {
   getProfile() {
     // Retrieves the profile data from localStorage
     const profile = localStorage.getItem('profile')
-    return profile ? JSON.parse(localStorage.profile) : {}
+    return profile ? JSON.parse(localStorage.profile) : null
   }
 
   getToken() {
