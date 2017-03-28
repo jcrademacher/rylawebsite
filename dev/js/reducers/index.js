@@ -1,33 +1,30 @@
 import {combineReducers} from 'redux';
 
-const CurrentTabReducer = function(state=null, action) {
-	if(state == null)
-		return 0;					// default currentTab,
-	else {
-		switch(action.type) {
-			case "NAV_TAB_CHANGED":
-				return action.payload;
-				break;
-			default:
-				return state;
-		}
-	}
+const ProfileUpdatedReducer = (state=null, action) => {
+	if(action.type == "PROFILE_UPDATED")
+		return action.payload
+
+	else return state;
 }
 
-const InfoViewReducer = (state=null, action) => {
-	if(state == null)
-		return 0
-	else {
-		if(action.type == "INFO_VIEW_CHANGED")
-			return action.payload
+const WindowWidthReducer = (state=null, action) => {
+	if(action.type == "WINDOW_WIDTH_UPDATED")
+		return action.payload;
 
-		else return state;
-	}
+	else return state;
+}
+
+const WindowHeightReducer = (state=null, action) => {
+	if(action.type == "WINDOW_HEIGHT_UPDATED")
+		return action.payload;
+
+	else return state;
 }
 
 // this is essentially what the 'store' looks like
 // the reducers return data that create a new store
 export default combineReducers({
-	currentTab: CurrentTabReducer,
-	currentInfoView: InfoViewReducer
+	profile: ProfileUpdatedReducer,
+	windowWidth: WindowWidthReducer,
+	windowHeight: WindowHeightReducer
 });
