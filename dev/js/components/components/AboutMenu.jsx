@@ -63,7 +63,7 @@ const AboutMenu = (props) =>  {
 		}
 		else if(type == 'dropdown') {
 			return (
-				<DropdownButton title={navItems[getActiveKey()]} onSelect={handleNavSelect}>
+				<DropdownButton id='dropdown' title={navItems[getActiveKey()]} onSelect={handleNavSelect}>
 					{navItems.map((title, index) => {
 						return (
 							<MenuItem eventKey={index}>{title}</MenuItem>
