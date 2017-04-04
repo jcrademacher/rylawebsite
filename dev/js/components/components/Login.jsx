@@ -10,11 +10,14 @@ export default class Login extends React.Component {
 		this.state = {
 			email: '',
 			password: '',
-			loginError: false
+			loginError: false,
+			isLoading: false
 		}
 	}
 
 	login() {
+		this.setState({ isLoading: true});
+
 		this.props.auth.login(this.state.email, this.state.password, (err) => {
 			if(err != undefined)
 				this.setState({ loginError: true });
@@ -23,6 +26,8 @@ export default class Login extends React.Component {
 	}
 
 	render() {
+		let { isLoading } = this.state;
+
 		return (
 			<div>
 				<h1>Sign in to your MyRYLA account</h1>
@@ -49,9 +54,10 @@ export default class Login extends React.Component {
 					bsSize='large'
 					bsStyle='success'
 					block
-					onClick={() => this.login()}
+					onClick={!isLoading ? () => this.login() : null}
+					disabled={isLoading}
 				>
-					Log in
+					{!isLoading ? "Log in" : "Please wait..."}
 				</Button><br/>
 				<Link style={{color: "white"}} to='login/register'>Don't have an account? Register here.</Link><br/>
 				<Link style={{color: "white"}} to='login/forgot'>Forgot password? Click here.</Link>
