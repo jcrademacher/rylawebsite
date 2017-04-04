@@ -5,7 +5,7 @@ const Panel = (props) => {
 	const border = props.borderWidth == undefined ? 'none' : props.borderWidth + "px solid " + props.borderColor;
 
 	var backgroundColor = props.backgroundColor == undefined ? "none" : props.backgroundColor;
-	var shadow = props.shadow == undefined || props.shadow == false ? "none" : "10px 10px 15px rgb(130, 130, 130)";
+	var shadow = props.shadow == undefined || props.shadow == false ? "none" : "5px 5px 15px rgb(130, 130, 130)";
 
 	const panelStyle = {
 		backgroundColor: backgroundColor,
