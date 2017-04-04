@@ -14,6 +14,7 @@ class AuthService extends EventEmitter {
       redirectUri: 'http://localhost:8080/login'
     })
 
+		this.domain = 'ryla7780.auth0.com';
 		this.login = this.login.bind(this)
     this.signup = this.signup.bind(this)
 	}
@@ -28,18 +29,42 @@ class AuthService extends EventEmitter {
       if (err) {
         callback(err);
       }
-    })
+    });
   }
 
 	changePassword(email, callback) {
 		this.auth0.changePassword({
 			connection: 'Username-Password-Authentication',
-			email: email,
+			email,
 		}, callback);
+	}
+
+	getAppTerm() {
+		const date = new Date();
+
+		// checking to see if applicant hasnt applied by April 7 at 5:00 P.M of current year
+		if(date.getMonth() == 3 && date.getDate() == 1 && date.getHours() < 17)
+			return date.getFullYear();
+		else if(date.getMonth() == 3 && date.getDate() < 1)
+			return date.getFullYear();
+		else if(date.getMonth() < 3)
+			return date.getFullYear();
+		else
+			return date.getFullYear() + 1 // sends to next year's pool
 	}
 
 	// signs a user up
 	signup(email, password, callback, metadata){
+		const defaultVals = {
+			appComplete: false,
+			appDecision: 'unknown',
+			appTerm: this.getAppTerm(),
+			nickname: '',
+			middleInitial: '',
+			currentAge: "10",
+		}
+
+		const meta = Object.assign({}, defaultVals, metadata);
 
     this.auth0.redirect.signupAndLogin({
       connection: 'Username-Password-Authentication',
@@ -54,7 +79,7 @@ class AuthService extends EventEmitter {
     })
   }
 
-	// parses user info after signup
+	// parses user info after signup/login
 	parseHash(hash) {
     this.auth0.parseHash({ hash, _idTokenVerification: false }, (err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
@@ -64,6 +89,9 @@ class AuthService extends EventEmitter {
           if (error) {
             console.log('Error loading the Profile', error);
           } else {
+						this.updateProfile(profile.user_id, {
+							flabber: "yes"
+						});
             this.setProfile(profile);
           }
         })
@@ -93,6 +121,23 @@ class AuthService extends EventEmitter {
     localStorage.setItem('profile', JSON.stringify(profile))
 		// triggers event
 		this.emit('profile_updated', profile);
+  }
+
+	// the new updateProfile
+  updateProfile(userId, data) {
+    const headers = {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + this.getToken() //setting authorization header
+    }
+    // making the PATCH http request to auth0 api
+    return fetch(`https://${this.domain}/api/v2/users/${userId}`, {
+      method: 'PATCH',
+      headers: headers,
+      body: JSON.stringify({ user_metadata: data })
+    })
+    .then(response => response.json())
+    .then(newProfile => this.setProfile(newProfile)) //updating current profile
   }
 
   getProfile() {
