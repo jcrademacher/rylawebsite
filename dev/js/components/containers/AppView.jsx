@@ -10,6 +10,7 @@ import Login from '../components/Login.jsx';
 import Register from '../components/Register.jsx';
 import Forgot from '../components/Forgot.jsx';
 import MyRYLA from '../containers/MyRYLA.jsx';
+import Dashboard from '../components/Dashboard.jsx';
 
 import { Router, Route, IndexRoute, browserHistory} from 'react-router';
 
@@ -80,7 +81,10 @@ class AppView extends React.Component {
 						<Route path='forgot' component={Forgot}/>
 					</Route>
 					<Route path='gallery' component={PhotoViewer}/>
-					<Route path='MyRYLA' component={MyRYLA} onEnter={requireAuth}/>
+					<Route path='MyRYLA' component={MyRYLA} onEnter={requireAuth}>
+						<IndexRoute component={Dashboard}/>
+						<Route path='application' component={() => <h1>Application</h1>}/>
+					</Route>
 					<Route path='about' component={AboutRYLAWrapper}/>
 					<Route path='contact' component={ContactWrapper}/>
 					<Route path='directions' component={DirectionsWrapper}/>
