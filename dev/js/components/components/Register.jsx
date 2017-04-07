@@ -13,7 +13,8 @@ export default class Register extends React.Component {
 			password: '',
 			cpassword: '',
 			loginError: false,
-			errorDescription: ''
+			errorDescription: '',
+			isLoading: false
 		};
 	}
 
@@ -38,14 +39,17 @@ export default class Register extends React.Component {
 	}
 
 	signup() {
+		this.setState({ isLoading: true });
 		this.props.auth.signup(this.state.email, this.state.password, (err) => {
 			if(err != undefined)
-				this.setState({loginError: true, errorDescription: err.description});
+				this.setState({loginError: true, errorDescription: err.description, isLoading: false});
 			else this.setState({ loginError: false, errorDescription: ''});
 		}, { name: this.state.fname, lastname: this.state.lname }); //  passes data specified by user
 	}
 
 	render() {
+		let { isLoading } = this.state;
+
 		return (
 			<div>
 				<h1>Register for MyRYLA</h1>
@@ -84,14 +88,15 @@ export default class Register extends React.Component {
 						feedback
 						validationState={this.getValidationState()}
 					/>
+					<br/>
 					<p>{this.state.errorDescription}</p>
 					<Button
-						disabled={this.getButtonDisabledState()}
+						disabled={this.getButtonDisabledState() || isLoading}
 						bsStyle='success'
 						bsSize='large'
 						block
-						onClick={() => this.signup()}>
-						Register
+						onClick={!isLoading ? () => this.signup() : null}>
+						{!isLoading ? 'Register' : 'Please wait...'}
 					</Button>
 				</div>
 			</div>
