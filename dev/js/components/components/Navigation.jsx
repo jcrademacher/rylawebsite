@@ -44,7 +44,7 @@ const Navigation = (props) => {
 
 	return (
 		<div style={{border: "2px solid black"}}>
-			<Navbar fixedTop fluid>
+			<Navbar fixedTop fluid inverse>
 		    <Navbar.Header>
 		      <Navbar.Brand>
 		        <a href="/">RYLA District 7780</a>
