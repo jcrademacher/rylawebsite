@@ -42,10 +42,7 @@ const createCarouselItems = () => {
 const PhotoViewer = (props) => {
 	return	(
 		<div style={divStyle}>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
+			<br/><br/>
 			<center>
 				{createCarouselItems()}
 			</center>
