@@ -10,7 +10,9 @@ import { Router, Route, Link, hashHistory} from 'react-router';
 
 const App = () => {
 	return (
-		<AppView/>
+		<div style={{fontFamily: 'Muli'}}>
+			<AppView/>
+		</div>
 	);
 }
 
