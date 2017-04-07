@@ -9,19 +9,25 @@ export default class Forgot extends React.Component {
 
 		this.email = '';
 		this.state = {
-			emailSent: false
+			emailSent: false,
+			isLoading: false
 		};
 	}
 
 	changePassword() {
+		this.setState({ isLoading: true });
 		this.props.auth.changePassword(this.email, (err, resp) => {
 			if(resp)
 				this.setState({emailSent: true});
+
+			this.setState({ isLoading: false });
 		});
 	}
 
 	// shows 'email sent' panel if user sent password reset email
 	getPanel() {
+		let { isLoading } = this.state;
+
 		if(!this.state.emailSent) {
 			return (
 				<div>
@@ -39,9 +45,10 @@ export default class Forgot extends React.Component {
 						bsStyle="success"
 						block
 						bsSize='large'
-						onClick={() => this.changePassword()}
+						onClick={!isLoading ? () => this.changePassword() : null}
+						disabled={isLoading}
 					>
-						Send
+						{!isLoading ? 'Send' : 'Please wait...'}
 					</Button>
 				</div>
 			);
