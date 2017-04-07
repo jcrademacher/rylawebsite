@@ -43,9 +43,9 @@ class AuthService extends EventEmitter {
 		const date = new Date();
 
 		// checking to see if applicant hasnt applied by April 7 at 5:00 P.M of current year
-		if(date.getMonth() == 3 && date.getDate() == 1 && date.getHours() < 17)
+		if(date.getMonth() == 3 && date.getDate() == 7 && date.getHours() < 17)
 			return date.getFullYear();
-		else if(date.getMonth() == 3 && date.getDate() < 1)
+		else if(date.getMonth() == 3 && date.getDate() < 7)
 			return date.getFullYear();
 		else if(date.getMonth() < 3)
 			return date.getFullYear();
@@ -55,25 +55,18 @@ class AuthService extends EventEmitter {
 
 	// signs a user up
 	signup(email, password, callback, metadata){
-		const defaultVals = {
-			appComplete: false,
-			appDecision: 'unknown',
-			appTerm: this.getAppTerm(),
-			nickname: '',
-			middleInitial: '',
-			currentAge: "10",
-		}
 
-		const meta = Object.assign({}, defaultVals, metadata);
+		const meta = Object.assign({ new: 'yes' }, metadata);
 
     this.auth0.redirect.signupAndLogin({
       connection: 'Username-Password-Authentication',
       email,
       password,
-			user_metadata: metadata,
+			user_metadata: meta,
     }, function(err, authResult) {
       if (err != undefined) {
         callback(err);
+				console.log(err);
 				return;
       }
     })
@@ -86,13 +79,23 @@ class AuthService extends EventEmitter {
         this.setToken(authResult.accessToken, authResult.idToken);
 
 				this.auth0.client.userInfo(authResult.accessToken, (error, profile) => {
-          if (error) {
+					if (error) {
             console.log('Error loading the Profile', error);
           } else {
-						this.updateProfile(profile.user_id, {
-							flabber: "yes"
-						});
-            this.setProfile(profile);
+						if(profile.user_metadata.new == 'yes') {
+							// default metadata
+							this.updateProfile(profile.user_id, {
+								appTerm: this.getAppTerm(),
+								nickname: '',
+								middleInitial: '',
+								appDecision: 'unknown',
+								appComplete: false,
+								new: 'no'
+							});
+						}
+						else {
+							this.updateProfile(profile.user_id, { appTerm: this.getAppTerm() });
+						}
           }
         })
 
