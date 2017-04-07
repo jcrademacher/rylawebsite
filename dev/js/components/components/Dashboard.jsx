@@ -19,7 +19,7 @@ class Dashboard extends React.Component {
 			return <strong style={{color: 'green'}}>You have been accepted to RYLA {meta.appTerm}!</strong>
 		}
 		else if(meta.appDecision == 'unknown')
-			return <span>You will be notified of your admission decision soon!</span>
+			return <span>You will be notified of your admission decision to RYLA {meta.appTerm} soon!</span>
 		else if(meta.appDecision == 'denied')
 			return <strong style={{color: 'red'}}>
 				We are sorry to inform you that we were unable to offer you a spot at RYLA {meta.appTerm}.
