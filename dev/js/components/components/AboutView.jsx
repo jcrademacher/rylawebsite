@@ -43,8 +43,6 @@ class AboutView extends React.Component {
 		if(this.props.windowWidth >= 768) {
 			return (
 				<div>
-					<br/>
-					<br/>
 					<div style={styles.left}>
 						{CurrentSection}
 					</div>
@@ -63,7 +61,7 @@ class AboutView extends React.Component {
 		else {
 			return(
 				<div>
-					<br/><br/>
+					<br/>
 					<div style={styles.image}>
 						<Image src={images[12]} responsive/>
 					</div>
