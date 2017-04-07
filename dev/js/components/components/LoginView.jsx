@@ -29,7 +29,6 @@ class Login extends React.Component {
 								borderWidth="1"
 								borderColor="white"
 							>
-								{/*this.getCurrentPanel()*/}
 								{React.cloneElement(this.props.children, {auth: this.props.auth})}
 							</Panel></div>
 						</Col>
