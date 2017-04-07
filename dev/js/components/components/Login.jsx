@@ -20,8 +20,8 @@ export default class Login extends React.Component {
 
 		this.props.auth.login(this.state.email, this.state.password, (err) => {
 			if(err != undefined)
-				this.setState({ loginError: true });
-			else this.setState({ loginError: false });
+				this.setState({ loginError: true, isLoading: false });
+			else this.setState({ loginError: false, isLoading: false });
 		});
 	}
 
