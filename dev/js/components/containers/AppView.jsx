@@ -83,7 +83,7 @@ class AppView extends React.Component {
 					<Route path='gallery' component={PhotoViewer}/>
 					<Route path='MyRYLA' component={MyRYLA} onEnter={requireAuth}>
 						<IndexRoute component={Dashboard}/>
-						<Route path='application' component={() => <h1>Application</h1>}/>
+						<Route path='profile' component={() => <h1>Profile</h1>}/>
 					</Route>
 					<Route path='about' component={AboutRYLAWrapper}/>
 					<Route path='contact' component={ContactWrapper}/>
