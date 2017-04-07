@@ -41,8 +41,13 @@ class MyRYLA extends React.Component {
 		if(this.state.componentReady) {
 			return (
 				<div style={{ marginRight: 26, marginLeft: 26 }}>
-					<br/><br/>
-					<AccountNav auth={this.props.auth} name={this.profile.user_metadata.name}/>
+					<AccountNav
+						auth={this.props.auth}
+						name={this.profile.user_metadata.name}
+						collapse={this.props.windowWidth < 768}
+						titles={['Dashboard', 'Profile', 'Activities', 'Additional Information']}
+						urls={['/MyRYLA', '/MyRYLA/profile', '/MyRYLA/activities', '/MyRYLA/info']}
+					/>
 					<Panel
 						textColor='black'
 						backgroundColor='rgb(156, 212, 228)'
