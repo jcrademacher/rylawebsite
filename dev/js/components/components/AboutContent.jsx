@@ -82,12 +82,13 @@ export const Directions = () => (
 export const Principles = () => (
 	<div style={divStyle}>
 		<h1>Principles of Rotary</h1>
+		<hr/>
 		<h3><b>Theme:</b></h3>
 		<p>Every year the newly elected Rotary International President chooses a theme for Rotarians during his/her
 			presidency. Last year's theme was <i>Be a gift to the world</i>. This year's theme is <i>Making a Difference</i>, chosen by
 			current president Ian Riseley. The theme is meant to serve as general ethical and moral guideline for all Rotarians across
 			the globe.
-		</p><br></br>
+		</p>
 		<h3><b>The Four-Way Test:</b></h3>
 		<h3>Is it the truth?</h3>
 		<h3>Is it fair to all concerned?</h3>
