@@ -1,15 +1,13 @@
 import React from 'react';
-import { browserHistory } from 'react-router';
 import AccountNav from '../components/AccountNav.jsx';
 
 import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
 
-import { setProfile } from '../../actions';
-
-import { Route, IndexRoute } from 'react-router';
+import { Route, IndexRoute, browserHistory } from 'react-router';
 
 import Panel from '../components/Panel.jsx';
+
+import { Button,  } from 'react-bootstrap';
 
 // sends store state into AppView as props
 function mapStateToProps(state) {
@@ -24,15 +22,13 @@ class MyRYLA extends React.Component {
 	constructor(props) {
 		super(props);
 
-		this.profile = props.auth.getProfile();
-
+		// marks component as not ready to be loaded
 		this.state = {
-			componentReady: this.profile != null
+			componentReady: props.profile != null
 		}
 
 		// when AuthService emits profile updated event, update redux
-		props.auth.on('profile_updated', () => {
-			this.profile = props.auth.getProfile();
+		this.props.auth.on('profile_updated', () => {
 			this.setState({componentReady: true});
 		});
 	}
@@ -43,7 +39,7 @@ class MyRYLA extends React.Component {
 				<div style={{ marginRight: 26, marginLeft: 26 }}>
 					<AccountNav
 						auth={this.props.auth}
-						name={this.profile.user_metadata.name}
+						name={this.props.profile.user_metadata.name}
 						collapse={this.props.windowWidth < 768}
 						titles={['Dashboard', 'Profile', 'Activities', 'Additional Information']}
 						urls={['/MyRYLA', '/MyRYLA/profile', '/MyRYLA/activities', '/MyRYLA/info']}
@@ -54,7 +50,7 @@ class MyRYLA extends React.Component {
 						shadow
 					>
 						{React.cloneElement(this.props.children, {
-							profile: this.profile,
+							profile: this.props.profile,
 							windowWidth: this.props.windowWidth,
 							windowHeight: this.props.windowHeight})}
 					</Panel>
@@ -62,9 +58,14 @@ class MyRYLA extends React.Component {
 			);
 		}
 		else return (
-			<div>
-				<br/><br/>
-				<h2>Loading...</h2>
+			<div style={{margin: 20}}>
+				<h2>Could not load profile.</h2>
+				<Button bsStyle='danger' onClick={() => { this.props.auth.logout(); browserHistory.push('/login') }}>Click here to sign out</Button>
+				<br/>
+				<p>Check for an update on your browser to ensure capability with this portal.
+					<br/>
+					If the problem persists, please download <a href="https://www.google.com/chrome/browser/desktop/index.html" >Google Chrome</a> (it's the better browser anyways).
+				</p>
 			</div>
 		);
 	}
