@@ -42,6 +42,7 @@
     "react-router-dom": "^4.0.0",
     "react-stormpath": "^2.0.0",
     "react-tap-event-plugin": "^2.0.1",
-    "redux": "^3.6.0"
+    "redux": "^3.6.0",
+    "whatwg-fetch": "^2.0.3"
   }
 }
