@@ -18,16 +18,16 @@ const AboutMenu = (props) =>  {
 				browserHistory.push('/about');
 				break;
 			case 1:
-				browserHistory.push('/principles');
+				browserHistory.push('/about/principles');
 				break;
 			case 2:
-				browserHistory.push('/contact');
+				browserHistory.push('/about/contact');
 				break;
 			case 3:
-				browserHistory.push('/directions');
+				browserHistory.push('/about/directions');
 				break;
 			case 4:
-				browserHistory.push('/faq');
+				browserHistory.push('/about/faq');
 				break;
 		}
 	};
@@ -35,10 +35,10 @@ const AboutMenu = (props) =>  {
 	const getActiveKey = () => {
 		switch (props.path) {
 			case '/about': 						return 0;
-			case '/principles': return 1;
-			case '/contact': 		return 2;
-			case '/directions': return 3;
-			case '/faq': 				return 4;
+			case '/about/principles': return 1;
+			case '/about/contact': 		return 2;
+			case '/about/directions': return 3;
+			case '/about/faq': 				return 4;
 		}
 	}
 
