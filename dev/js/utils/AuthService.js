@@ -1,6 +1,7 @@
 import { EventEmitter } from 'events';
 import { browserHistory } from 'react-router';
 import { isTokenExpired } from './jwtHelper';
+import 'whatwg-fetch';
 import auth0 from 'auth0-js';
 
 class AuthService extends EventEmitter {
@@ -86,10 +87,24 @@ class AuthService extends EventEmitter {
 							// default metadata
 							this.updateProfile(profile.user_id, {
 								appTerm: this.getAppTerm(),
-								nickname: '',
-								middleInitial: '',
-								appDecision: 'unknown',
+								nickname: null,
+								middleInitial: null,
+								appDecision: null,
 								appComplete: false,
+								currentAge: null,
+								currentGrade: null,
+								sex: null,
+								address: null,
+								city: null,
+								zipCode: null,
+								cellPhone: null,
+								homePhone: null,
+								hasInteractClub: false,
+								isInteractMember: false,
+								tshirtSize: null,
+								profileComplete: false,
+								activitiesComplete: false,
+								additionalInfoComplete: false,
 								new: 'no'
 							});
 						}
@@ -134,7 +149,7 @@ class AuthService extends EventEmitter {
       'Authorization': 'Bearer ' + this.getToken() //setting authorization header
     }
     // making the PATCH http request to auth0 api
-    return fetch(`https://${this.domain}/api/v2/users/${userId}`, {
+    return window.fetch(`https://${this.domain}/api/v2/users/${userId}`, {
       method: 'PATCH',
       headers: headers,
       body: JSON.stringify({ user_metadata: data })
@@ -161,5 +176,4 @@ class AuthService extends EventEmitter {
   }
 }
 
-// Auth0 authentication service
 export default AuthService;
