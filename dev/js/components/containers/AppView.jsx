@@ -10,7 +10,10 @@ import Login from '../components/Login.jsx';
 import Register from '../components/Register.jsx';
 import Forgot from '../components/Forgot.jsx';
 import MyRYLA from '../containers/MyRYLA.jsx';
-import Dashboard from '../components/Dashboard.jsx';
+import CamperDashboard from '../components/CamperDashboard.jsx';
+import Profile from '../components/Profile.jsx';
+import CamperActivities from '../components/CamperActivities.jsx';
+import CamperInformation from '../components/CamperInformation.jsx';
 
 import { Router, Route, IndexRoute, browserHistory} from 'react-router';
 
@@ -82,14 +85,16 @@ class AppView extends React.Component {
 					</Route>
 					<Route path='gallery' component={PhotoViewer}/>
 					<Route path='MyRYLA' component={MyRYLA} onEnter={requireAuth}>
-						<IndexRoute component={Dashboard}/>
-						<Route path='profile' component={() => <h1>Profile</h1>}/>
+						<IndexRoute component={CamperDashboard}/>
+						<Route path='profile' component={Profile}/>
+						<Route path='activities' component={CamperActivities}/>
+						<Route path='info' component={CamperInformation}/>
 					</Route>
 					<Route path='about' component={AboutRYLAWrapper}/>
-					<Route path='contact' component={ContactWrapper}/>
-					<Route path='directions' component={DirectionsWrapper}/>
-					<Route path='principles' component={PrinciplesWrapper}/>
-					<Route path='faq' component={FAQWrapper}/>
+					<Route path='about/contact' component={ContactWrapper}/>
+					<Route path='about/directions' component={DirectionsWrapper}/>
+					<Route path='about/principles' component={PrinciplesWrapper}/>
+					<Route path='about/faq' component={FAQWrapper}/>
 				</Route>
 				<Route path='*' component={() => <h1>404: Not Found</h1>}/>
 			</Router>
@@ -97,5 +102,4 @@ class AppView extends React.Component {
 	}
 }
 
-// links AppView with redux
 export default AppView;
