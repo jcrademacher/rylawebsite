@@ -16,17 +16,16 @@ class InfoPanel extends React.Component {
 		};
 
 		const hstyle = {
-			margin: 10,
 			fontSize: 36
 		};
 
 		return (
 			<div style={divStyle}>
 				<br/><br/><br/>
-				<h1 style={hstyle}>{this.props.title}</h1>
+				<div style={{margin: 20}}><h1 style={hstyle}>{this.props.title}</h1>
 				<br/>
-				<Button bsStyle="success" onClick={this.props.onClick}>{this.props.buttonLabel}</Button>
-				<br/><br/><br/><br/>
+				<Button bsStyle="success" onClick={this.props.onClick}>{this.props.buttonLabel}</Button></div>
+				<br/><br/><br/>
 			</div>
 		);
 	}
