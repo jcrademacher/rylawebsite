@@ -38,7 +38,8 @@ const Navigation = (props) => {
 			case '/MyRYLA': return 1;
 			case '/gallery': return 2;
 			case '/about': return 3;
-			default: return 1;
+			default:
+				return props.path.includes('/about') ? 3 : 1; // if path contains about route
 		}
 	}
 
