@@ -5,8 +5,7 @@ import Navigation from '../components/Navigation.jsx';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
-import { setWindowWidth } from '../../actions';
-import { setWindowHeight } from '../../actions';
+import { setWindowWidth, setWindowHeight, setProfile } from '../../actions';
 
 function mapStateToProps(state) {
 	return {
@@ -16,10 +15,22 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-	return bindActionCreators({ setWindowWidth, setWindowHeight }, dispatch)
+	return bindActionCreators({ setWindowWidth, setWindowHeight, setProfile }, dispatch)
 }
 
 class AppContainer extends React.Component {
+	constructor(props) {
+		super(props);
+
+		let { auth } = this.props.route;
+
+		this.props.setProfile(auth.getProfile());
+
+		auth.on('profile_updated', () => {
+			this.props.setProfile(auth.getProfile());
+		});
+	}
+
 	updateDimensions() {
 		this.props.setWindowWidth(window.innerWidth);
 		this.props.setWindowHeight(window.innerHeight);
